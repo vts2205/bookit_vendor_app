@@ -26,3 +26,5 @@ doc/api/
 .flutter-plugins
 .flutter-plugins-dependencies
 /.idea/
+.idea/libraries/Dart_Packages.xml
+bookit_vendor_app.iml
