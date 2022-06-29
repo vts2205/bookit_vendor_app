@@ -3,6 +3,8 @@ import 'package:bookit_vendor_app/view/authentication/register_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../home/views/home_view.dart';
+
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
@@ -46,7 +48,9 @@ class LoginScreen extends StatelessWidget {
             ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     primary: blue, minimumSize: const Size(120, 45)),
-                onPressed: () {},
+                onPressed: () {
+                  Get.to(HomeView());
+                },
                 child: const Text('LOGIN',
                     style: TextStyle(
                         fontSize: 20,

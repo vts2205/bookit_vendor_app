@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         const SystemUiOverlayStyle(statusBarColor: blue));
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'vendor app',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
