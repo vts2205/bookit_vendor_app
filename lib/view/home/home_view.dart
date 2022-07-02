@@ -15,6 +15,72 @@ class HomeView extends StatelessWidget {
           title: const Text('Vendor'),
           backgroundColor: Colors.teal,
         ),
+        drawer: Drawer(
+          backgroundColor: Colors.white,
+          width: Get.width * 0.6,
+          child: ListView(children: const [
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: DrawerHeader(
+                  child: CircleAvatar(
+                backgroundImage: AssetImage('assets/driver.png'),
+                radius: 50,
+              )),
+            ),
+            Padding(
+              padding: EdgeInsets.all(12.0),
+              child: ListTile(
+                leading: Icon(Icons.drive_eta_rounded),
+                title: Text('My Cars'),
+              ),
+            ),
+            Divider(
+              height: 10,
+            ),
+            Padding(
+              padding: EdgeInsets.all(12.0),
+              child: ListTile(
+                leading: Icon(
+                  Icons.people,
+                ),
+                title: Text('My Drivers'),
+              ),
+            ),
+            Divider(
+              height: 10,
+            ),
+            Padding(
+              padding: EdgeInsets.all(12.0),
+              child: ListTile(
+                leading: Icon(Icons.monetization_on),
+                title: Text('My Earnings'),
+              ),
+            ),
+            Divider(
+              height: 10,
+            ),
+            Padding(
+              padding: EdgeInsets.all(12.0),
+              child: ListTile(
+                leading: Icon(Icons.report),
+                title: Text('Reports'),
+              ),
+            ),
+            Divider(
+              height: 10,
+            ),
+            Padding(
+              padding: EdgeInsets.all(12.0),
+              child: ListTile(
+                leading: Icon(Icons.support),
+                title: Text('Support'),
+              ),
+            ),
+            Divider(
+              height: 10,
+            )
+          ]),
+        ),
         body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
