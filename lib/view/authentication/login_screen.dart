@@ -52,7 +52,7 @@ class LoginScreen extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
                     primary: blue, minimumSize: const Size(120, 45)),
                 onPressed: () {
-                  Get.to(HomeView());
+                  Get.to(const HomeView());
                 },
                 child: const Text('LOGIN',
                     style: TextStyle(

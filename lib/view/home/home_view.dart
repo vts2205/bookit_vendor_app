@@ -1,30 +1,34 @@
-// ignore_for_file: avoid_unnecessary_containers
 
-import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
 class HomeView extends StatelessWidget {
+  const HomeView({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Vendor'),
+          title: const Text('Vendor'),
           backgroundColor: Colors.teal,
         ),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10),
           child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  _infoCard(2, Icons.location_on, 'Active Cabs'),
+                  _infoCard(
+                    2,
+                    Icons.location_on,
+                    'Active Cabs',
+                  ),
                   _infoCard(2, Icons.car_repair, 'InActive Cabs'),
                   _infoCard(3, Icons.block, 'Blocked Cabs'),
                 ],
@@ -41,7 +45,7 @@ class HomeView extends StatelessWidget {
                           children: [
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
+                              children: const [
                                 Text(
                                   "Collection",
                                   style: TextStyle(
@@ -58,12 +62,12 @@ class HomeView extends StatelessWidget {
                                 )
                               ],
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 20,
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
+                              children: const [
                                 Text(
                                   "01 Jul 2022",
                                   style: TextStyle(
@@ -75,7 +79,7 @@ class HomeView extends StatelessWidget {
                                 )
                               ],
                             ),
-                            Divider(
+                            const Divider(
                               height: 25,
                             ),
                             Row(
@@ -84,7 +88,7 @@ class HomeView extends StatelessWidget {
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Column(
-                                    children: [
+                                    children: const [
                                       Text(
                                         "\u{20B9} 61.08",
                                       ),
@@ -107,7 +111,7 @@ class HomeView extends StatelessWidget {
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Column(
-                                    children: [
+                                    children: const [
                                       Text(
                                         "\u{20B9} 61.08",
                                       ),
@@ -130,7 +134,7 @@ class HomeView extends StatelessWidget {
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Column(
-                                    children: [
+                                    children: const [
                                       Text(
                                         "\u{20B9} 61.08",
                                       ),
@@ -147,7 +151,7 @@ class HomeView extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            Divider(
+                            const Divider(
                               height: 20,
                             ),
                             Padding(
@@ -155,7 +159,7 @@ class HomeView extends StatelessWidget {
                               child: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
-                                children: [
+                                children: const [
                                   Text(
                                     "Net Earnings",
                                     style: TextStyle(fontSize: 16),
@@ -174,16 +178,16 @@ class HomeView extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
+                    const Text(
                       "Cab Performance",
                       style:
-                          TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
+                           TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
                     ),
                     TextButton(
                         onPressed: () {},
-                        child: Text(
+                        child: const Text(
                           "View All",
-                          style: TextStyle(
+                          style:  TextStyle(
                             color: Colors.grey,
                           ),
                         ))
@@ -193,7 +197,7 @@ class HomeView extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15),
                 child:
-                    Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+                    Row(mainAxisAlignment: MainAxisAlignment.start, children: const [
                   Text(
                     "01 Jul 2022  -  10 Jul 2022",
                     style: TextStyle(color: Colors.grey, fontSize: 15),
@@ -204,16 +208,17 @@ class HomeView extends StatelessWidget {
               SizedBox(
                 height: 150,
                 child: Expanded(
-                    child: ListView.builder(
-                        shrinkWrap: true,
-                        scrollDirection: Axis.horizontal,
-                        itemCount: 4,
-                        itemBuilder: (BuildContext context, int index) =>
-                            _cabcard(
-                                cabno: "TN38AS1111",
-                                amount: "11806.83 ",
-                                rating: "4.5",
-                                rides: 8))),
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    scrollDirection: Axis.horizontal,
+                    itemCount: 4,
+                    itemBuilder: (BuildContext context, int index) => _cabcard(
+                        cabno: "TN38AS1111",
+                        amount: "11806.83 ",
+                        rating: "4.5",
+                        rides: 8),
+                  ),
+                ),
               ),
             ],
           ),
@@ -221,13 +226,17 @@ class HomeView extends StatelessWidget {
   }
 }
 
-Widget _infoCard(int no, IconData iconData, String text) {
+Widget _infoCard(
+  int no,
+  IconData iconData,
+  String text,
+) {
   return Card(
-    child: Container(
+    child: SizedBox(
       width: Get.width * 0.27,
       height: Get.height * 0.09,
       child: Column(children: [
-        Divider(
+        const Divider(
           height: 5,
           color: Colors.teal,
           thickness: 10,
@@ -241,7 +250,7 @@ Widget _infoCard(int no, IconData iconData, String text) {
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
                   no.toString(),
-                  style: TextStyle(
+                  style: const TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
                       fontSize: 20),
@@ -273,32 +282,32 @@ Widget _cabcard(
           padding: const EdgeInsets.all(12.0),
           child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               Text(cabno),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Text(
                 "\u{20B9}$amount",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Icon(
+                  const Icon(
                     Icons.star,
                     color: Colors.amber,
                   ),
                   Text(
                     rating,
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
-                  Spacer(),
+                  const Spacer(),
                   Text("Rides:$rides")
                 ],
               )
