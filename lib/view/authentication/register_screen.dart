@@ -20,7 +20,7 @@ class RegisterScreen extends StatelessWidget {
                 height: 150,
                 child: Image.asset('assets/logo/v.png')),
             const Text(
-              'REGISTER TO CONTINUE',
+              'REGISTER',
               style: TextStyle(
                   fontSize: 25, fontWeight: FontWeight.bold, letterSpacing: 3),
             ),
@@ -29,34 +29,44 @@ class RegisterScreen extends StatelessWidget {
               decoration: InputDecoration(
                   contentPadding: const EdgeInsets.all(10),
                   hintText: 'Enter your name',
+                  labelText: 'Name',
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(5))),
             ),
             const SizedBox(height: 20),
             TextFormField(
+              keyboardType: TextInputType.phone,
               decoration: InputDecoration(
                   contentPadding: const EdgeInsets.all(10),
                   hintText: 'Enter your phone number',
+                  labelText: 'Phone Number',
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(5))),
             ),
             const SizedBox(height: 20),
             TextFormField(
+              obscureText: true,
               decoration: InputDecoration(
                   contentPadding: const EdgeInsets.all(10),
-                  hintText: 'Enter your email address',
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(5))),
-            ),
-            const SizedBox(height: 20),
-            TextFormField(
-              decoration: InputDecoration(
-                  contentPadding: const EdgeInsets.all(10),
+                  labelText: 'Password',
                   hintText: 'Enter your password',
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(5))),
             ),
             const SizedBox(height: 20),
+            TextFormField(
+              obscureText: true,
+              decoration: InputDecoration(
+                  contentPadding: const EdgeInsets.all(10),
+                  labelText: 'Confirm Password',
+                  hintText: 'Confirm your password',
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(5))),
+            ),
+            _buildUpload('Aadhaar front'),
+            _buildUpload('Aadhaar back'),
+            _buildUpload('Pan'),
+            _buildUpload('Passbook'),
             ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     primary: blue, minimumSize: const Size(120, 45)),
@@ -66,19 +76,108 @@ class RegisterScreen extends StatelessWidget {
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                         letterSpacing: 2))),
-            TextButton(
-                style: TextButton.styleFrom(primary: blue),
-                onPressed: () {
-                  Get.to(const LoginScreen());
-                },
-                child: const Text('Already have an account? Login',
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text('Already have an account?',
                     style: TextStyle(
+                        color: Colors.grey,
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
-                        letterSpacing: 2)))
+                        letterSpacing: 2)),
+                TextButton(
+                  style: TextButton.styleFrom(primary: blue),
+                  onPressed: () {
+                    Get.to(const LoginScreen());
+                  },
+                  child: const Text('Login',
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 2)),
+                ),
+              ],
+            ),
           ],
         ),
       ),
     ));
   }
+}
+
+Widget _buildUpload(String filename) {
+  return Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          filename,
+          style: const TextStyle(color: Colors.blueGrey, fontSize: 18),
+        ),
+        const Spacer(),
+        Container(
+            width: 50,
+            height: 50,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10), color: Colors.grey),
+            child: const Icon(
+              Icons.image,
+            )),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: ElevatedButton(
+              onPressed: () {
+                Get.bottomSheet(Container(
+                  height: Get.height * 0.1,
+                  decoration: const BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(10.0),
+                          topRight: Radius.circular(10.0))),
+                  child: Padding(
+                    padding: const EdgeInsets.all(6.0),
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          TextButton.icon(
+                              onPressed: () {},
+                              icon: const Icon(
+                                Icons.camera,
+                                size: 25,
+                                color: Colors.teal,
+                              ),
+                              label: const Text(
+                                'Camera',
+                                style: TextStyle(
+                                    color: blue,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold),
+                              )),
+                          TextButton.icon(
+                              onPressed: () {},
+                              icon: const Icon(
+                                Icons.image,
+                                size: 25,
+                                color: Colors.teal,
+                              ),
+                              label: const Text(
+                                'Gallery',
+                                style: TextStyle(
+                                    color: blue,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold),
+                              ))
+                        ]),
+                  ),
+                ));
+              },
+              child: const Text(
+                'Upload',
+                style: TextStyle(color: Colors.white, fontSize: 15),
+              )),
+        )
+      ],
+    ),
+  );
 }

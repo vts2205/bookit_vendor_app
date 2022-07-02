@@ -3,7 +3,7 @@ import 'package:bookit_vendor_app/view/authentication/register_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../home/views/home_view.dart';
+import '../home/home_view.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -18,19 +18,20 @@ class LoginScreen extends StatelessWidget {
           children: [
             const SizedBox(height: 50),
             SizedBox(
-                width: 300,
-                height: 300,
+                width: Get.width * 0.6,
+                height: Get.height * 0.4,
                 child: Image.asset('assets/logo/v.png')),
             const Text(
               'LOGIN TO CONTINUE',
               style: TextStyle(
                   fontSize: 25, fontWeight: FontWeight.bold, letterSpacing: 3),
             ),
-            const SizedBox(height: 30),
+            SizedBox(height: Get.height * 0.05),
             TextFormField(
               decoration: InputDecoration(
                   contentPadding: const EdgeInsets.all(10),
-                  hintText: 'Enter your email address',
+                  hintText: 'Enter your Phone Number',
+                  labelText: 'Phone Number',
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(5)),
                   focusedBorder: const OutlineInputBorder(
@@ -38,13 +39,15 @@ class LoginScreen extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             TextFormField(
+              obscureText: true,
               decoration: InputDecoration(
                   contentPadding: const EdgeInsets.all(10),
+                  labelText: 'Password',
                   hintText: 'Enter your password',
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(5))),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 25),
             ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     primary: blue, minimumSize: const Size(120, 45)),
@@ -56,16 +59,31 @@ class LoginScreen extends StatelessWidget {
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                         letterSpacing: 2))),
-            TextButton(
-                style: TextButton.styleFrom(primary: blue),
-                onPressed: () {
-                  Get.to(const RegisterScreen());
-                },
-                child: const Text('Don\'t have an account? Register',
+            const SizedBox(
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text('Don\'t have an account?',
                     style: TextStyle(
+                        color: Colors.grey,
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
-                        letterSpacing: 2)))
+                        letterSpacing: 2)),
+                TextButton(
+                  style: TextButton.styleFrom(primary: blue),
+                  onPressed: () {
+                    Get.to(const RegisterScreen());
+                  },
+                  child: const Text('Register',
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 2)),
+                ),
+              ],
+            )
           ],
         ),
       ),
