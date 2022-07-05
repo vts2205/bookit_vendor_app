@@ -1,9 +1,7 @@
+import 'package:bookit_vendor_app/view/widgets/drawer.dart';
 import 'package:bookit_vendor_app/view/active_cabs.dart';
-import 'package:bookit_vendor_app/view/assign_driver.dart';
 import 'package:bookit_vendor_app/view/blocked%20cabs.dart';
 import 'package:bookit_vendor_app/view/inactive_cabs.dart';
-import 'package:bookit_vendor_app/view/mycars.dart';
-import 'package:bookit_vendor_app/view/mydriver.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -11,100 +9,26 @@ import 'package:get/get.dart';
 import '../widgets/appbar.dart';
 
 class HomeView extends StatelessWidget {
-  const HomeView({Key? key}) : super(key: key);
+  const HomeView({
+    Key? key,
+  }) : super(
+          key: key,
+        );
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(
+    BuildContext context,
+  ) {
     return Scaffold(
-        appBar: const CustomAppbar(title: 'Vendor'),
-        drawer: Drawer(
-          backgroundColor: Colors.white,
-          width: Get.width * 0.6,
-          child: ListView(children: [
-            const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: DrawerHeader(
-                  child: CircleAvatar(
-                backgroundImage: AssetImage('assets/driver.png'),
-                radius: 50,
-              )),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: ListTile(
-                leading: const Icon(Icons.drive_eta_rounded),
-                title: const Text('My Cars'),
-                onTap: () {
-                  Get.to(const MyCars());
-                },
-              ),
-            ),
-            const Divider(
-              height: 10,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: ListTile(
-                leading: const Icon(
-                  Icons.people,
-                ),
-                title: const Text('My Drivers'),
-                onTap: () {
-                  Get.to(const Mydriver());
-                },
-              ),
-            ),
-            const Divider(
-              height: 10,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: ListTile(
-                leading: const Icon(Icons.directions_car_outlined),
-                title: const Text('Assign Driver'),
-                onTap: () {
-                  Get.to(const AssignDriver());
-                },
-              ),
-            ),
-            const Divider(
-              height: 10,
-            ),
-            const Padding(
-              padding: EdgeInsets.all(12.0),
-              child: ListTile(
-                leading: Icon(Icons.monetization_on),
-                title: Text('My Earnings'),
-              ),
-            ),
-            const Divider(
-              height: 10,
-            ),
-            const Padding(
-              padding: EdgeInsets.all(12.0),
-              child: ListTile(
-                leading: Icon(Icons.report),
-                title: Text('Reports'),
-              ),
-            ),
-            const Divider(
-              height: 10,
-            ),
-            const Padding(
-              padding: EdgeInsets.all(12.0),
-              child: ListTile(
-                leading: Icon(Icons.support),
-                title: Text('Support'),
-              ),
-            ),
-            const Divider(
-              height: 10,
-            )
-          ]),
+        appBar: const CustomAppbar(
+          title: 'Vendor',
         ),
+        drawer: const CusDraw(),
         body: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
+            padding: const EdgeInsets.symmetric(
+              horizontal: 10,
+            ),
             child: Column(
               children: [
                 const SizedBox(
@@ -114,36 +38,49 @@ class HomeView extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     _infoCard(
-                        iconData: Icons.location_on,
-                        no: 2,
-                        ontap: () {
-                          Get.to(const ActiveCabs());
-                        },
-                        text: 'Active Cabs'),
+                      iconData: Icons.location_on,
+                      no: 2,
+                      ontap: () {
+                        Get.to(
+                          const ActiveCabs(),
+                        );
+                      },
+                      text: 'Active Cabs',
+                    ),
                     _infoCard(
-                        iconData: Icons.car_repair,
-                        no: 2,
-                        ontap: () {
-                          Get.to(const InactiveCabs());
-                        },
-                        text: 'InActive Cabs'),
+                      iconData: Icons.car_repair,
+                      no: 2,
+                      ontap: () {
+                        Get.to(
+                          const InactiveCabs(),
+                        );
+                      },
+                      text: 'InActive Cabs',
+                    ),
                     _infoCard(
-                        iconData: Icons.block,
-                        no: 3,
-                        ontap: () {
-                          Get.to(const BlockedCabs());
-                        },
-                        text: 'Blocked Cabs'),
+                      iconData: Icons.block,
+                      no: 3,
+                      ontap: () {
+                        Get.to(
+                          const BlockedCabs(),
+                        );
+                      },
+                      text: 'Blocked Cabs',
+                    ),
                   ],
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(
+                    8.0,
+                  ),
                   child: Card(
                     child: SizedBox(
                         height: Get.height * 0.27,
                         width: Get.width,
                         child: Padding(
-                          padding: const EdgeInsets.all(20.0),
+                          padding: const EdgeInsets.all(
+                            20.0,
+                          ),
                           child: Column(
                             children: [
                               Row(
@@ -153,16 +90,18 @@ class HomeView extends StatelessWidget {
                                   Text(
                                     "Collection",
                                     style: TextStyle(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.w700,
-                                        fontSize: 20),
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w700,
+                                      fontSize: 20,
+                                    ),
                                   ),
                                   Text(
                                     "\u{20B9} 61.08",
                                     style: TextStyle(
-                                        fontWeight: FontWeight.w400,
-                                        color: Colors.red,
-                                        fontSize: 20),
+                                      fontWeight: FontWeight.w400,
+                                      color: Colors.red,
+                                      fontSize: 20,
+                                    ),
                                   )
                                 ],
                               ),
@@ -176,11 +115,15 @@ class HomeView extends StatelessWidget {
                                   Text(
                                     "01 Jul 2022",
                                     style: TextStyle(
-                                        color: Colors.grey, fontSize: 15),
+                                      color: Colors.grey,
+                                      fontSize: 15,
+                                    ),
                                   ),
                                   Text(
                                     "Net Earning \u{20B9} 54.06",
-                                    style: TextStyle(color: Colors.green),
+                                    style: TextStyle(
+                                      color: Colors.green,
+                                    ),
                                   )
                                 ],
                               ),
@@ -192,7 +135,9 @@ class HomeView extends StatelessWidget {
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsets.all(8.0),
+                                    padding: const EdgeInsets.all(
+                                      8.0,
+                                    ),
                                     child: Column(
                                       children: const [
                                         Text(
@@ -204,7 +149,9 @@ class HomeView extends StatelessWidget {
                                         Text(
                                           "Cash",
                                           style: TextStyle(
-                                              color: Colors.grey, fontSize: 15),
+                                            color: Colors.grey,
+                                            fontSize: 15,
+                                          ),
                                         )
                                       ],
                                     ),
@@ -215,7 +162,9 @@ class HomeView extends StatelessWidget {
                                     height: 40,
                                   ),
                                   Padding(
-                                    padding: const EdgeInsets.all(8.0),
+                                    padding: const EdgeInsets.all(
+                                      8.0,
+                                    ),
                                     child: Column(
                                       children: const [
                                         Text(
@@ -227,7 +176,9 @@ class HomeView extends StatelessWidget {
                                         Text(
                                           "Digital Payments",
                                           style: TextStyle(
-                                              color: Colors.grey, fontSize: 15),
+                                            color: Colors.grey,
+                                            fontSize: 15,
+                                          ),
                                         )
                                       ],
                                     ),
@@ -238,7 +189,9 @@ class HomeView extends StatelessWidget {
                                     height: 40,
                                   ),
                                   Padding(
-                                    padding: const EdgeInsets.all(8.0),
+                                    padding: const EdgeInsets.all(
+                                      8.0,
+                                    ),
                                     child: Column(
                                       children: const [
                                         Text(
@@ -250,7 +203,9 @@ class HomeView extends StatelessWidget {
                                         Text(
                                           "Discount",
                                           style: TextStyle(
-                                              color: Colors.grey, fontSize: 15),
+                                            color: Colors.grey,
+                                            fontSize: 15,
+                                          ),
                                         )
                                       ],
                                     ),
@@ -261,16 +216,22 @@ class HomeView extends StatelessWidget {
                                 height: 20,
                               ),
                               Padding(
-                                padding: const EdgeInsets.all(8.0),
+                                padding: const EdgeInsets.all(
+                                  8.0,
+                                ),
                                 child: Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: const [
                                     Text(
                                       "Net Earnings",
-                                      style: TextStyle(fontSize: 16),
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                      ),
                                     ),
-                                    Icon(Icons.keyboard_arrow_right)
+                                    Icon(
+                                      Icons.keyboard_arrow_right,
+                                    )
                                   ],
                                 ),
                               )
@@ -280,14 +241,18 @@ class HomeView extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                  ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       const Text(
                         "Cab Performance",
                         style: TextStyle(
-                            fontWeight: FontWeight.w700, fontSize: 18),
+                          fontWeight: FontWeight.w700,
+                          fontSize: 18,
+                        ),
                       ),
                       TextButton(
                           onPressed: () {},
@@ -301,15 +266,22 @@ class HomeView extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 15,
+                  ),
                   child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: const [
                         Text(
                           "01 Jul 2022  -  10 Jul 2022",
-                          style: TextStyle(color: Colors.grey, fontSize: 15),
+                          style: TextStyle(
+                            color: Colors.grey,
+                            fontSize: 15,
+                          ),
                         ),
-                        Icon(Icons.keyboard_arrow_down)
+                        Icon(
+                          Icons.keyboard_arrow_down,
+                        )
                       ]),
                 ),
                 SizedBox(
@@ -319,24 +291,32 @@ class HomeView extends StatelessWidget {
                       shrinkWrap: true,
                       scrollDirection: Axis.horizontal,
                       itemCount: 4,
-                      itemBuilder: (BuildContext context, int index) =>
+                      itemBuilder: (
+                        BuildContext context,
+                        int index,
+                      ) =>
                           _cabcard(
-                              cabno: "TN38AS1111",
-                              amount: "11806.83 ",
-                              rating: "4.5",
-                              rides: 8),
+                        cabno: "TN38AS1111",
+                        amount: "11806.83 ",
+                        rating: "4.5",
+                        rides: 8,
+                      ),
                     ),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                  ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       const Text(
                         "Driver Performance",
                         style: TextStyle(
-                            fontWeight: FontWeight.w700, fontSize: 18),
+                          fontWeight: FontWeight.w700,
+                          fontSize: 18,
+                        ),
                       ),
                       TextButton(
                           onPressed: () {},
@@ -350,15 +330,22 @@ class HomeView extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 15,
+                  ),
                   child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: const [
                         Text(
                           "01 Jul 2022  -  10 Jul 2022",
-                          style: TextStyle(color: Colors.grey, fontSize: 15),
+                          style: TextStyle(
+                            color: Colors.grey,
+                            fontSize: 15,
+                          ),
                         ),
-                        Icon(Icons.keyboard_arrow_down)
+                        Icon(
+                          Icons.keyboard_arrow_down,
+                        )
                       ]),
                 ),
                 SizedBox(
@@ -368,13 +355,17 @@ class HomeView extends StatelessWidget {
                       shrinkWrap: true,
                       scrollDirection: Axis.horizontal,
                       itemCount: 4,
-                      itemBuilder: (BuildContext context, int index) =>
+                      itemBuilder: (
+                        BuildContext context,
+                        int index,
+                      ) =>
                           _drivercard(
-                              drivername: 'Raja',
-                              earning: '11806',
-                              photo: 'driver.png',
-                              rating: '4.5',
-                              rides: 18),
+                        drivername: 'Raja',
+                        earning: '11806',
+                        photo: 'driver.png',
+                        rating: '4.5',
+                        rides: 18,
+                      ),
                     ),
                   ),
                 ),
@@ -385,11 +376,12 @@ class HomeView extends StatelessWidget {
   }
 }
 
-Widget _infoCard(
-    {required int no,
-    required IconData iconData,
-    required String text,
-    required VoidCallback ontap}) {
+Widget _infoCard({
+  required int no,
+  required IconData iconData,
+  required String text,
+  required VoidCallback ontap,
+}) {
   return InkWell(
     onTap: ontap,
     child: Card(
@@ -403,18 +395,23 @@ Widget _infoCard(
             thickness: 10,
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(
+              8.0,
+            ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(
+                    8.0,
+                  ),
                   child: Text(
                     no.toString(),
                     style: const TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20),
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                    ),
                   ),
                 ),
                 Icon(
@@ -431,111 +428,137 @@ Widget _infoCard(
   );
 }
 
-Widget _cabcard(
-    {required String cabno,
-    required String amount,
-    required String rating,
-    required int rides}) {
+Widget _cabcard({
+  required String cabno,
+  required String amount,
+  required String rating,
+  required int rides,
+}) {
   return Card(
     child: SizedBox(
-        width: Get.width * 0.46,
-        height: Get.height * 0.15,
-        child: Padding(
-          padding: const EdgeInsets.all(12.0),
-          child: Column(
-            children: [
-              const SizedBox(
-                height: 15,
+      width: Get.width * 0.46,
+      height: Get.height * 0.15,
+      child: Padding(
+        padding: const EdgeInsets.all(
+          12.0,
+        ),
+        child: Column(
+          children: [
+            const SizedBox(
+              height: 15,
+            ),
+            Text(
+              cabno,
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Text(
+              "\u{20B9}$amount",
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
               ),
-              Text(cabno),
-              const SizedBox(
-                height: 20,
-              ),
-              Text(
-                "\u{20B9}$amount",
-                style:
-                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Icon(
-                    Icons.star,
-                    color: Colors.amber,
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Icon(
+                  Icons.star,
+                  color: Colors.amber,
+                ),
+                Text(
+                  rating,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
                   ),
-                  Text(
-                    rating,
-                    style: const TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  const Spacer(),
-                  Text("Rides:$rides")
-                ],
-              )
-            ],
-          ),
-        )),
+                ),
+                const Spacer(),
+                Text(
+                  "Rides:$rides",
+                )
+              ],
+            )
+          ],
+        ),
+      ),
+    ),
   );
 }
 
-Widget _drivercard(
-    {required String drivername,
-    required String earning,
-    required String photo,
-    required String rating,
-    required int rides}) {
+Widget _drivercard({
+  required String drivername,
+  required String earning,
+  required String photo,
+  required String rating,
+  required int rides,
+}) {
   return Card(
     child: SizedBox(
-        width: Get.width * 0.46,
-        height: Get.height * 0.15,
-        child: Padding(
-          padding: const EdgeInsets.all(12.0),
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  CircleAvatar(
-                    radius: 30,
-                    child: Image.asset('assets/$photo'),
+      width: Get.width * 0.46,
+      height: Get.height * 0.15,
+      child: Padding(
+        padding: const EdgeInsets.all(
+          12.0,
+        ),
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                CircleAvatar(
+                  radius: 30,
+                  child: Image.asset(
+                    'assets/$photo',
                   ),
-                  Column(
-                    children: [
-                      Text(drivername),
-                      const SizedBox(
-                        height: 20,
+                ),
+                Column(
+                  children: [
+                    Text(
+                      drivername,
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      "\u{20B9}$earning",
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
                       ),
-                      Text(
-                        "\u{20B9}$earning",
-                        style: const TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 16),
-                      ),
-                    ],
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Icon(
+                  Icons.star,
+                  color: Colors.amber,
+                ),
+                Text(
+                  rating,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
                   ),
-                ],
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Icon(
-                    Icons.star,
-                    color: Colors.amber,
-                  ),
-                  Text(
-                    rating,
-                    style: const TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  const Spacer(),
-                  Text("Rides:$rides")
-                ],
-              )
-            ],
-          ),
-        )),
+                ),
+                const Spacer(),
+                Text(
+                  "Rides:$rides",
+                )
+              ],
+            )
+          ],
+        ),
+      ),
+    ),
   );
 }

@@ -73,23 +73,25 @@ class OnBoardingScreen extends StatelessWidget {
                           }))),
             ),
             Positioned(
-                right: 20,
-                bottom: 20,
-                child: FloatingActionButton(
-                    backgroundColor: blue,
-                    elevation: 0,
-                    onPressed: () {
-                      controller.isLastPage
-                          ? Get.offAll(const LoginScreen())
-                          : controller.forwardAction();
-                    },
-                    child: Obx(() {
-                      return Text(
-                        controller.isLastPage ? 'Start' : 'Next',
-                        style: const TextStyle(
-                            fontWeight: FontWeight.w500, fontSize: 18),
-                      );
-                    })))
+              right: 20,
+              bottom: 20,
+              child: FloatingActionButton(
+                backgroundColor: blue,
+                elevation: 0,
+                onPressed: () {
+                  controller.isLastPage
+                      ? Get.offAll(const LoginScreen())
+                      : controller.forwardAction();
+                },
+                child: Obx(() {
+                  return Text(
+                    controller.isLastPage ? 'Start' : 'Next',
+                    style: const TextStyle(
+                        fontWeight: FontWeight.w500, fontSize: 18),
+                  );
+                }),
+              ),
+            ),
           ],
         ),
       ),

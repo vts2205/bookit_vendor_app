@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'widgets/drawer.dart';
 import 'widgets/appbar.dart';
 
 class BlockedCabs extends StatelessWidget {
@@ -8,8 +9,11 @@ class BlockedCabs extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppbar(title: 'Blocked Cabs'),
+      appBar: const CustomAppbar(
+        title: 'Blocked Cabs',
+      ),
       body: Container(),
+      drawer: const CusDraw(),
     );
   }
 }

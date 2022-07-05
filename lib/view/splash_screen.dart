@@ -18,8 +18,13 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   navigateToOnBoardingScreen() async {
-    await Future.delayed(const Duration(seconds: 3), () {});
-    Get.offAll(const OnBoardingScreen());
+    await Future.delayed(
+      const Duration(seconds: 3),
+      () {},
+    );
+    Get.offAll(
+      const OnBoardingScreen(),
+    );
   }
 
   @override
@@ -29,11 +34,20 @@ class _SplashScreenState extends State<SplashScreen> {
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
-            gradient: LinearGradient(
-                colors: [blue.withOpacity(0.4), white],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight)),
-        child: Center(child: Image.asset('assets/logo/v.png')),
+          gradient: LinearGradient(
+            colors: [
+              blue.withOpacity(0.4),
+              white,
+            ],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+        ),
+        child: Center(
+          child: Image.asset(
+            'assets/logo/v.png',
+          ),
+        ),
       ),
     );
   }
