@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'widgets/appbar.dart';
+
 class ActiveCabs extends StatelessWidget {
   const ActiveCabs({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Active Cabs'),
-        backgroundColor: Colors.teal,
-      ),
+      appBar: const CustomAppbar(title: 'Active Cabs'),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(8.0),

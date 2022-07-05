@@ -1,9 +1,14 @@
 import 'package:bookit_vendor_app/view/active_cabs.dart';
+import 'package:bookit_vendor_app/view/assign_driver.dart';
 import 'package:bookit_vendor_app/view/blocked%20cabs.dart';
 import 'package:bookit_vendor_app/view/inactive_cabs.dart';
+import 'package:bookit_vendor_app/view/mycars.dart';
+import 'package:bookit_vendor_app/view/mydriver.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+
+import '../widgets/appbar.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -11,15 +16,12 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Vendor'),
-          backgroundColor: Colors.teal,
-        ),
+        appBar: const CustomAppbar(title: 'Vendor'),
         drawer: Drawer(
           backgroundColor: Colors.white,
           width: Get.width * 0.6,
-          child: ListView(children: const [
-            Padding(
+          child: ListView(children: [
+            const Padding(
               padding: EdgeInsets.all(8.0),
               child: DrawerHeader(
                   child: CircleAvatar(
@@ -28,55 +30,74 @@ class HomeView extends StatelessWidget {
               )),
             ),
             Padding(
-              padding: EdgeInsets.all(12.0),
+              padding: const EdgeInsets.all(12.0),
               child: ListTile(
-                leading: Icon(Icons.drive_eta_rounded),
-                title: Text('My Cars'),
+                leading: const Icon(Icons.drive_eta_rounded),
+                title: const Text('My Cars'),
+                onTap: () {
+                  Get.to(const MyCars());
+                },
               ),
             ),
-            Divider(
+            const Divider(
               height: 10,
             ),
             Padding(
-              padding: EdgeInsets.all(12.0),
+              padding: const EdgeInsets.all(12.0),
               child: ListTile(
-                leading: Icon(
+                leading: const Icon(
                   Icons.people,
                 ),
-                title: Text('My Drivers'),
+                title: const Text('My Drivers'),
+                onTap: () {
+                  Get.to(const Mydriver());
+                },
               ),
             ),
-            Divider(
+            const Divider(
               height: 10,
             ),
             Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: ListTile(
+                leading: const Icon(Icons.directions_car_outlined),
+                title: const Text('Assign Driver'),
+                onTap: () {
+                  Get.to(const AssignDriver());
+                },
+              ),
+            ),
+            const Divider(
+              height: 10,
+            ),
+            const Padding(
               padding: EdgeInsets.all(12.0),
               child: ListTile(
                 leading: Icon(Icons.monetization_on),
                 title: Text('My Earnings'),
               ),
             ),
-            Divider(
+            const Divider(
               height: 10,
             ),
-            Padding(
+            const Padding(
               padding: EdgeInsets.all(12.0),
               child: ListTile(
                 leading: Icon(Icons.report),
                 title: Text('Reports'),
               ),
             ),
-            Divider(
+            const Divider(
               height: 10,
             ),
-            Padding(
+            const Padding(
               padding: EdgeInsets.all(12.0),
               child: ListTile(
                 leading: Icon(Icons.support),
                 title: Text('Support'),
               ),
             ),
-            Divider(
+            const Divider(
               height: 10,
             )
           ]),
