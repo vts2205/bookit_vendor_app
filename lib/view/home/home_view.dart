@@ -1,3 +1,4 @@
+import 'package:bookit_vendor_app/constants/colors.dart';
 import 'package:bookit_vendor_app/view/widgets/drawer.dart';
 import 'package:bookit_vendor_app/view/active_cabs.dart';
 import 'package:bookit_vendor_app/view/blocked%20cabs.dart';
@@ -75,7 +76,7 @@ class HomeView extends StatelessWidget {
                 ),
                 child: Card(
                   child: SizedBox(
-                      height: Get.height * 0.28,
+                      height: Get.height * 0.35,
                       width: Get.width,
                       child: Padding(
                         padding: const EdgeInsets.all(
@@ -85,7 +86,7 @@ class HomeView extends StatelessWidget {
                           children: [
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children:  [
+                              children:  const [
                                 Text(
                                   "Collection",
                                   style: TextStyle(
@@ -131,27 +132,22 @@ class HomeView extends StatelessWidget {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(
-                                    8.0,
-                                  ),
-                                  child: Column(
-                                    children: const [
-                                      Text(
-                                        "\u{20B9} 61.08",
+                                Column(
+                                  children: const [
+                                    Text(
+                                      "\u{20B9} 61.08",
+                                    ),
+                                    SizedBox(
+                                      height: 10,
+                                    ),
+                                    Text(
+                                      "Cash",
+                                      style: TextStyle(
+                                        color: Colors.grey,
+                                        fontSize: 15,
                                       ),
-                                      SizedBox(
-                                        height: 10,
-                                      ),
-                                      Text(
-                                        "Cash",
-                                        style: TextStyle(
-                                          color: Colors.grey,
-                                          fontSize: 15,
-                                        ),
-                                      )
-                                    ],
-                                  ),
+                                    )
+                                  ],
                                 ),
                                 Container(
                                   color: Colors.grey,
@@ -164,18 +160,18 @@ class HomeView extends StatelessWidget {
                                   ),
                                   child: Column(
                                     children:  [
-                                      Text(
+                                      const Text(
                                         "\u{20B9} 61.08",
                                       ),
-                                      SizedBox(
+                                      const SizedBox(
                                         height: 10,
                                       ),
                                       Text(
                                         "Digital Payments",
                                         textScaleFactor: Get.textScaleFactor,
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           color: Colors.grey,
-                                          fontSize: 15,
+                                          fontSize: 16,
                                         ),
                                       )
                                     ],
@@ -284,7 +280,7 @@ class HomeView extends StatelessWidget {
               ),
               SizedBox(
                 height: 150,
-                child: Expanded(
+                // child: Expanded(
                   child: ListView.builder(
                     shrinkWrap: true,
                     scrollDirection: Axis.horizontal,
@@ -300,7 +296,7 @@ class HomeView extends StatelessWidget {
                       rides: 8,
                     ),
                   ),
-                ),
+                // ),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(
@@ -348,7 +344,7 @@ class HomeView extends StatelessWidget {
               ),
               SizedBox(
                 height: 150,
-                child: Expanded(
+                // child: Expanded(
                   child: ListView.builder(
                     shrinkWrap: true,
                     scrollDirection: Axis.horizontal,
@@ -365,7 +361,7 @@ class HomeView extends StatelessWidget {
                       rides: 18,
                     ),
                   ),
-                ),
+                // ),
               ),
             ],
           ),
@@ -386,11 +382,11 @@ Widget _infoCard({
     child: Card(
       child: SizedBox(
         width: Get.width * 0.27,
-        height: Get.height * 0.1,
+        height: Get.height * 0.13,
         child: Column(children: [
-          const Divider(
+           Divider(
             height: 5,
-            color: Colors.teal,
+            color: green,
             thickness: 10,
           ),
           Padding(

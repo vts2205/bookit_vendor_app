@@ -13,27 +13,24 @@ class CusDraw extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       backgroundColor: Colors.white,
-      width: Get.width * 0.9,
-      child: ListView(
-        children: [
-          const Padding(
-            padding: EdgeInsets.all(
-              8.0,
-            ),
-            child: DrawerHeader(
-              child: CircleAvatar(
+      width: Get.width * 0.8,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+        child: ListView(
+          children: [
+            ListTile(
+              leading: CircleAvatar(
                 backgroundImage: AssetImage(
                   'assets/driver.png',
                 ),
-                radius: 50,
+                radius: 30,
               ),
+              title: Text("RajaRaja"),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(
-              12.0,
+            SizedBox(
+              height: 20,
             ),
-            child: ListTile(
+            ListTile(
               leading: const Icon(
                 Icons.home,
               ),
@@ -46,15 +43,10 @@ class CusDraw extends StatelessWidget {
                 );
               },
             ),
-          ),
-          const Divider(
-            height: 10,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(
-              12.0,
+            const Divider(
+              height: 2,
             ),
-            child: ListTile(
+            ListTile(
               leading: const Icon(
                 Icons.drive_eta_rounded,
               ),
@@ -67,15 +59,10 @@ class CusDraw extends StatelessWidget {
                 );
               },
             ),
-          ),
-          const Divider(
-            height: 10,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(
-              12.0,
+            const Divider(
+              height: 2,
             ),
-            child: ListTile(
+            ListTile(
               leading: const Icon(
                 Icons.people,
               ),
@@ -88,13 +75,10 @@ class CusDraw extends StatelessWidget {
                 );
               },
             ),
-          ),
-          const Divider(
-            height: 10,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: ListTile(
+            const Divider(
+              height: 2,
+            ),
+            ListTile(
               leading: const Icon(
                 Icons.directions_car_outlined,
               ),
@@ -107,15 +91,10 @@ class CusDraw extends StatelessWidget {
                 );
               },
             ),
-          ),
-          const Divider(
-            height: 10,
-          ),
-          const Padding(
-            padding: EdgeInsets.all(
-              12.0,
+            const Divider(
+              height: 2,
             ),
-            child: ListTile(
+            ListTile(
               leading: Icon(
                 Icons.monetization_on,
               ),
@@ -123,15 +102,10 @@ class CusDraw extends StatelessWidget {
                 'My Earnings',
               ),
             ),
-          ),
-          const Divider(
-            height: 10,
-          ),
-          const Padding(
-            padding: EdgeInsets.all(
-              12.0,
+            const Divider(
+              height: 2,
             ),
-            child: ListTile(
+            ListTile(
               leading: Icon(
                 Icons.report,
               ),
@@ -139,15 +113,10 @@ class CusDraw extends StatelessWidget {
                 'Reports',
               ),
             ),
-          ),
-          const Divider(
-            height: 10,
-          ),
-          const Padding(
-            padding: EdgeInsets.all(
-              12.0,
+            const Divider(
+              height: 2,
             ),
-            child: ListTile(
+            ListTile(
               leading: Icon(
                 Icons.support,
               ),
@@ -155,11 +124,11 @@ class CusDraw extends StatelessWidget {
                 'Support',
               ),
             ),
-          ),
-          const Divider(
-            height: 10,
-          )
-        ],
+            const Divider(
+              height: 2,
+            )
+          ],
+        ),
       ),
     );
   }
