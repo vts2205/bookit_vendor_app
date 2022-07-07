@@ -20,359 +20,357 @@ class HomeView extends StatelessWidget {
     BuildContext context,
   ) {
     return Scaffold(
-        appBar: const CustomAppbar(
-          title: 'Vendor',
-        ),
-        drawer: const CusDraw(),
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 10,
-            ),
-            child: Column(
-              children: [
-                const SizedBox(
-                  height: 10,
+      appBar: const CustomAppbar(
+        title: 'Vendor',
+      ),
+      drawer: const CusDraw(),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 10,
+          ),
+          child: Column(
+            children: [
+              const SizedBox(
+                height: 10,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  _infoCard(
+                    iconData: Icons.location_on,
+                    no: 2,
+                    ontap: () {
+                      Get.to(
+                        const ActiveCabs(),
+                      );
+                    },
+                    text: 'Active Cabs',
+                  ),
+                  _infoCard(
+                    iconData: Icons.car_repair,
+                    no: 2,
+                    ontap: () {
+                      Get.to(
+                        const InactiveCabs(),
+                      );
+                    },
+                    text: 'InActive Cabs',
+                  ),
+                  _infoCard(
+                    iconData: Icons.block,
+                    no: 3,
+                    ontap: () {
+                      Get.to(
+                        const BlockedCabs(),
+                      );
+                    },
+                    text: 'Blocked Cabs',
+                  ),
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.all(
+                  8.0,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                child: Card(
+                  child: SizedBox(
+                      height: Get.height * 0.27,
+                      width: Get.width,
+                      child: Padding(
+                        padding: const EdgeInsets.all(
+                          20.0,
+                        ),
+                        child: Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: const [
+                                Text(
+                                  "Collection",
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 20,
+                                  ),
+                                ),
+                                Text(
+                                  "\u{20B9} 61.08",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w400,
+                                    color: Colors.red,
+                                    fontSize: 20,
+                                  ),
+                                )
+                              ],
+                            ),
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: const [
+                                Text(
+                                  "01 Jul 2022",
+                                  style: TextStyle(
+                                    color: Colors.grey,
+                                    fontSize: 15,
+                                  ),
+                                ),
+                                Text(
+                                  "Net Earning \u{20B9} 54.06",
+                                  style: TextStyle(
+                                    color: Colors.green,
+                                  ),
+                                )
+                              ],
+                            ),
+                            const Divider(
+                              height: 25,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(
+                                    8.0,
+                                  ),
+                                  child: Column(
+                                    children: const [
+                                      Text(
+                                        "\u{20B9} 61.08",
+                                      ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      Text(
+                                        "Cash",
+                                        style: TextStyle(
+                                          color: Colors.grey,
+                                          fontSize: 15,
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                Container(
+                                  color: Colors.grey,
+                                  width: 1,
+                                  height: 40,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(
+                                    8.0,
+                                  ),
+                                  child: Column(
+                                    children: const [
+                                      Text(
+                                        "\u{20B9} 61.08",
+                                      ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      Text(
+                                        "Digital Payments",
+                                        style: TextStyle(
+                                          color: Colors.grey,
+                                          fontSize: 15,
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                Container(
+                                  color: Colors.grey,
+                                  width: 1,
+                                  height: 40,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(
+                                    8.0,
+                                  ),
+                                  child: Column(
+                                    children: const [
+                                      Text(
+                                        "\u{20B9} 61.08",
+                                      ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      Text(
+                                        "Discount",
+                                        style: TextStyle(
+                                          color: Colors.grey,
+                                          fontSize: 15,
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const Divider(
+                              height: 20,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(
+                                8.0,
+                              ),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: const [
+                                  Text(
+                                    "Net Earnings",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                  Icon(
+                                    Icons.keyboard_arrow_right,
+                                  )
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
+                      )),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    _infoCard(
-                      iconData: Icons.location_on,
-                      no: 2,
-                      ontap: () {
-                        Get.to(
-                          const ActiveCabs(),
-                        );
-                      },
-                      text: 'Active Cabs',
+                    const Text(
+                      "Cab Performance",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 18,
+                      ),
                     ),
-                    _infoCard(
-                      iconData: Icons.car_repair,
-                      no: 2,
-                      ontap: () {
-                        Get.to(
-                          const InactiveCabs(),
-                        );
-                      },
-                      text: 'InActive Cabs',
-                    ),
-                    _infoCard(
-                      iconData: Icons.block,
-                      no: 3,
-                      ontap: () {
-                        Get.to(
-                          const BlockedCabs(),
-                        );
-                      },
-                      text: 'Blocked Cabs',
-                    ),
+                    TextButton(
+                        onPressed: () {},
+                        child: const Text(
+                          "View All",
+                          style: TextStyle(
+                            color: Colors.grey,
+                          ),
+                        ))
                   ],
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(
-                    8.0,
-                  ),
-                  child: Card(
-                    child: SizedBox(
-                        height: Get.height * 0.27,
-                        width: Get.width,
-                        child: Padding(
-                          padding: const EdgeInsets.all(
-                            20.0,
-                          ),
-                          child: Column(
-                            children: [
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: const [
-                                  Text(
-                                    "Collection",
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.w700,
-                                      fontSize: 20,
-                                    ),
-                                  ),
-                                  Text(
-                                    "\u{20B9} 61.08",
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.w400,
-                                      color: Colors.red,
-                                      fontSize: 20,
-                                    ),
-                                  )
-                                ],
-                              ),
-                              const SizedBox(
-                                height: 20,
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: const [
-                                  Text(
-                                    "01 Jul 2022",
-                                    style: TextStyle(
-                                      color: Colors.grey,
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                  Text(
-                                    "Net Earning \u{20B9} 54.06",
-                                    style: TextStyle(
-                                      color: Colors.green,
-                                    ),
-                                  )
-                                ],
-                              ),
-                              const Divider(
-                                height: 25,
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.all(
-                                      8.0,
-                                    ),
-                                    child: Column(
-                                      children: const [
-                                        Text(
-                                          "\u{20B9} 61.08",
-                                        ),
-                                        SizedBox(
-                                          height: 10,
-                                        ),
-                                        Text(
-                                          "Cash",
-                                          style: TextStyle(
-                                            color: Colors.grey,
-                                            fontSize: 15,
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                  Container(
-                                    color: Colors.grey,
-                                    width: 1,
-                                    height: 40,
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.all(
-                                      8.0,
-                                    ),
-                                    child: Column(
-                                      children: const [
-                                        Text(
-                                          "\u{20B9} 61.08",
-                                        ),
-                                        SizedBox(
-                                          height: 10,
-                                        ),
-                                        Text(
-                                          "Digital Payments",
-                                          style: TextStyle(
-                                            color: Colors.grey,
-                                            fontSize: 15,
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                  Container(
-                                    color: Colors.grey,
-                                    width: 1,
-                                    height: 40,
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.all(
-                                      8.0,
-                                    ),
-                                    child: Column(
-                                      children: const [
-                                        Text(
-                                          "\u{20B9} 61.08",
-                                        ),
-                                        SizedBox(
-                                          height: 10,
-                                        ),
-                                        Text(
-                                          "Discount",
-                                          style: TextStyle(
-                                            color: Colors.grey,
-                                            fontSize: 15,
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              const Divider(
-                                height: 20,
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(
-                                  8.0,
-                                ),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: const [
-                                    Text(
-                                      "Net Earnings",
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                      ),
-                                    ),
-                                    Icon(
-                                      Icons.keyboard_arrow_right,
-                                    )
-                                  ],
-                                ),
-                              )
-                            ],
-                          ),
-                        )),
-                  ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 15,
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 16,
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const Text(
-                        "Cab Performance",
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: const [
+                      Text(
+                        "01 Jul 2022  -  10 Jul 2022",
                         style: TextStyle(
-                          fontWeight: FontWeight.w700,
-                          fontSize: 18,
+                          color: Colors.grey,
+                          fontSize: 15,
                         ),
                       ),
-                      TextButton(
-                          onPressed: () {},
-                          child: const Text(
-                            "View All",
-                            style: TextStyle(
-                              color: Colors.grey,
-                            ),
-                          ))
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 15,
-                  ),
-                  child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: const [
-                        Text(
-                          "01 Jul 2022  -  10 Jul 2022",
-                          style: TextStyle(
-                            color: Colors.grey,
-                            fontSize: 15,
-                          ),
-                        ),
-                        Icon(
-                          Icons.keyboard_arrow_down,
-                        )
-                      ]),
-                ),
-                SizedBox(
-                  height: 150,
-                  child: Expanded(
-                    child: ListView.builder(
-                      shrinkWrap: true,
-                      scrollDirection: Axis.horizontal,
-                      itemCount: 4,
-                      itemBuilder: (
-                        BuildContext context,
-                        int index,
-                      ) =>
-                          _cabcard(
-                        cabno: "TN38AS1111",
-                        amount: "11806.83 ",
-                        rating: "4.5",
-                        rides: 8,
-                      ),
+                      Icon(
+                        Icons.keyboard_arrow_down,
+                      )
+                    ]),
+              ),
+              SizedBox(
+                height: 150,
+                child: Expanded(
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    scrollDirection: Axis.horizontal,
+                    itemCount: 4,
+                    itemBuilder: (
+                      BuildContext context,
+                      int index,
+                    ) =>
+                        _cabcard(
+                      cabno: "TN38AS1111",
+                      amount: "11806.83 ",
+                      rating: "4.5",
+                      rides: 8,
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 16,
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const Text(
-                        "Driver Performance",
-                        style: TextStyle(
-                          fontWeight: FontWeight.w700,
-                          fontSize: 18,
-                        ),
-                      ),
-                      TextButton(
-                          onPressed: () {},
-                          child: const Text(
-                            "View All",
-                            style: TextStyle(
-                              color: Colors.grey,
-                            ),
-                          ))
-                    ],
-                  ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 15,
-                  ),
-                  child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: const [
-                        Text(
-                          "01 Jul 2022  -  10 Jul 2022",
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      "Driver Performance",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 18,
+                      ),
+                    ),
+                    TextButton(
+                        onPressed: () {},
+                        child: const Text(
+                          "View All",
                           style: TextStyle(
                             color: Colors.grey,
-                            fontSize: 15,
                           ),
-                        ),
-                        Icon(
-                          Icons.keyboard_arrow_down,
-                        )
-                      ]),
+                        ))
+                  ],
                 ),
-                SizedBox(
-                  height: 150,
-                  child: Expanded(
-                    child: ListView.builder(
-                      shrinkWrap: true,
-                      scrollDirection: Axis.horizontal,
-                      itemCount: 4,
-                      itemBuilder: (
-                        BuildContext context,
-                        int index,
-                      ) =>
-                          _drivercard(
-                        drivername: 'Raja',
-                        earning: '11806',
-                        photo: 'driver.png',
-                        rating: '4.5',
-                        rides: 18,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 15,
+                ),
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: const [
+                      Text(
+                        "01 Jul 2022  -  10 Jul 2022",
+                        style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 15,
+                        ),
                       ),
+                      Icon(
+                        Icons.keyboard_arrow_down,
+                      )
+                    ]),
+              ),
+              SizedBox(
+                height: 150,
+                child: Expanded(
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    scrollDirection: Axis.horizontal,
+                    itemCount: 4,
+                    itemBuilder: (
+                      BuildContext context,
+                      int index,
+                    ) =>
+                        _drivercard(
+                      drivername: 'Raja',
+                      earning: '11806',
+                      photo: 'driver.png',
+                      rating: '4.5',
+                      rides: 18,
                     ),
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
-        ));
+        ),
+      ),
+    );
   }
 }
 

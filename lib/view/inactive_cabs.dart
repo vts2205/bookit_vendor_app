@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'widgets/appbar.dart';
+import 'widgets/drawer.dart';
 
 class InactiveCabs extends StatelessWidget {
   const InactiveCabs({Key? key}) : super(key: key);
@@ -10,6 +11,7 @@ class InactiveCabs extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const CustomAppbar(title: 'Inactive Cabs'),
+      drawer: const CusDraw(),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(8.0),

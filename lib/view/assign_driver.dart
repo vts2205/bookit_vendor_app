@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'widgets/appbar.dart';
+import 'widgets/drawer.dart';
 
 class AssignDriver extends StatelessWidget {
   const AssignDriver({Key? key}) : super(key: key);
@@ -9,7 +10,8 @@ class AssignDriver extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const CustomAppbar(title: 'Assign Drivers'),
-      body: Container(),
+      body: Container(),        drawer: const CusDraw(),
+
     );
   }
 }

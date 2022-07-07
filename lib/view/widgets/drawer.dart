@@ -1,3 +1,4 @@
+import 'package:bookit_vendor_app/view/home/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -27,6 +28,27 @@ class CusDraw extends StatelessWidget {
                 radius: 50,
               ),
             ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(
+              12.0,
+            ),
+            child: ListTile(
+              leading: const Icon(
+                Icons.home,
+              ),
+              title: const Text(
+                'Home',
+              ),
+              onTap: () {
+                Get.to(
+                  const HomeView(),
+                );
+              },
+            ),
+          ),
+          const Divider(
+            height: 10,
           ),
           Padding(
             padding: const EdgeInsets.all(
