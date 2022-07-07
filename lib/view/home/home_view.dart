@@ -132,22 +132,26 @@ class HomeView extends StatelessWidget {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                Column(
-                                  children: const [
-                                    Text(
-                                      "\u{20B9} 61.08",
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      "Cash",
-                                      style: TextStyle(
-                                        color: Colors.grey,
-                                        fontSize: 15,
+                                Padding(
+                                  padding: const EdgeInsets.all(
+                                    5.0,
+                                  ),                                  child: Column(
+                                    children: const [
+                                      Text(
+                                        "\u{20B9} 61.08",
                                       ),
-                                    )
-                                  ],
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      Text(
+                                        "Cash",
+                                        style: TextStyle(
+                                          color: Colors.grey,
+                                          fontSize: 15,
+                                        ),
+                                      )
+                                    ],
+                                  ),
                                 ),
                                 Container(
                                   color: Colors.grey,
@@ -156,7 +160,7 @@ class HomeView extends StatelessWidget {
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.all(
-                                    8.0,
+                                    5.0,
                                   ),
                                   child: Column(
                                     children:  [

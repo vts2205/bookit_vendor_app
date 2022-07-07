@@ -66,9 +66,10 @@ Widget _carCard({
             title: Text(drivername),
             subtitle: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [const SizedBox(
-                height: 7,
-              ),
+              children: [
+                const SizedBox(
+                  height: 7,
+                ),
                 Text(
                   licenseno,
                   style: const TextStyle(
