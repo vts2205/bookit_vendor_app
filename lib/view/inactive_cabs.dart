@@ -17,21 +17,19 @@ class InactiveCabs extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: SizedBox(
             height: Get.height,
-            child: Expanded(
-              child: ListView.builder(
-                  shrinkWrap: true,
-                  scrollDirection: Axis.vertical,
-                  itemCount: 5,
-                  itemBuilder: (BuildContext context, int index) => _carCard(
-                      carNo: 'TN38AS1111',
-                      model: 'Alto',
-                      location: 'Sai baba colony',
-                      status: 'booked',
-                      photo: 'car.jpg',
-                      pickuplocation: 'gandipuram',
-                      droplocation: 'navaindia',
-                      tariff: '200')),
-            ),
+            child: ListView.builder(
+                shrinkWrap: true,
+                scrollDirection: Axis.vertical,
+                itemCount: 5,
+                itemBuilder: (BuildContext context, int index) => _carCard(
+                    carNo: 'TN38AS1111',
+                    model: 'Alto',
+                    location: 'Sai baba colony',
+                    status: 'booked',
+                    photo: 'car.jpg',
+                    pickuplocation: 'gandipuram',
+                    droplocation: 'navaindia',
+                    tariff: '200')),
           ),
         ),
       ),
@@ -51,7 +49,7 @@ Widget _carCard({
 }) {
   return Card(
     child: SizedBox(
-      height: Get.height * 0.23,
+      height: Get.height * 0.32,
       width: Get.width * 0.2,
       child: Padding(
         padding: const EdgeInsets.all(18.0),
