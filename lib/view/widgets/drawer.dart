@@ -13,7 +13,7 @@ class CusDraw extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       backgroundColor: Colors.white,
-      width: Get.width * 0.6,
+      width: Get.width * 0.9,
       child: ListView(
         children: [
           const Padding(

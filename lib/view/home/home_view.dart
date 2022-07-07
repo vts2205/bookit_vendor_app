@@ -75,7 +75,7 @@ class HomeView extends StatelessWidget {
                 ),
                 child: Card(
                   child: SizedBox(
-                      height: Get.height * 0.27,
+                      height: Get.height * 0.28,
                       width: Get.width,
                       child: Padding(
                         padding: const EdgeInsets.all(
@@ -85,7 +85,7 @@ class HomeView extends StatelessWidget {
                           children: [
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: const [
+                              children:  [
                                 Text(
                                   "Collection",
                                   style: TextStyle(
@@ -163,7 +163,7 @@ class HomeView extends StatelessWidget {
                                     8.0,
                                   ),
                                   child: Column(
-                                    children: const [
+                                    children:  [
                                       Text(
                                         "\u{20B9} 61.08",
                                       ),
@@ -172,6 +172,7 @@ class HomeView extends StatelessWidget {
                                       ),
                                       Text(
                                         "Digital Payments",
+                                        textScaleFactor: Get.textScaleFactor,
                                         style: TextStyle(
                                           color: Colors.grey,
                                           fontSize: 15,
@@ -385,7 +386,7 @@ Widget _infoCard({
     child: Card(
       child: SizedBox(
         width: Get.width * 0.27,
-        height: Get.height * 0.09,
+        height: Get.height * 0.1,
         child: Column(children: [
           const Divider(
             height: 5,

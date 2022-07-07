@@ -1,3 +1,4 @@
+import 'package:bookit_vendor_app/constants/colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
@@ -15,7 +16,7 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
       ),
       centerTitle: centertitle,
       automaticallyImplyLeading: true,
-      backgroundColor: Colors.teal,
+      backgroundColor: blue,
     );
   }
 }
