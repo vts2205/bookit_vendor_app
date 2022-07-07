@@ -147,7 +147,7 @@ Widget _buildUpload(String filename) {
                                 size: 25,
                                 color: Colors.teal,
                               ),
-                              label: const Text(
+                              label: Text(
                                 'Camera',
                                 style: TextStyle(
                                     color: blue,
@@ -161,7 +161,7 @@ Widget _buildUpload(String filename) {
                                 size: 25,
                                 color: Colors.teal,
                               ),
-                              label: const Text(
+                              label: Text(
                                 'Gallery',
                                 style: TextStyle(
                                     color: blue,

@@ -34,8 +34,8 @@ class LoginScreen extends StatelessWidget {
                   labelText: 'Phone Number',
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(5)),
-                  focusedBorder: const OutlineInputBorder(
-                      borderSide: BorderSide(color: blue))),
+                  focusedBorder:
+                      OutlineInputBorder(borderSide: BorderSide(color: blue))),
             ),
             const SizedBox(height: 20),
             TextFormField(

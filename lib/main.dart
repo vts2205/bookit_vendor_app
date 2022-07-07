@@ -13,14 +13,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
-        const SystemUiOverlayStyle(statusBarColor: blue));
+        SystemUiOverlayStyle(statusBarColor: blue));
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'vendor app',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home:  const HomeView(),
+      home: const HomeView(),
     );
   }
 }
