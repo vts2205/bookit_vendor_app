@@ -5,7 +5,7 @@ import 'package:bookit_vendor_app/view/my_earings_screen.dart';
 import 'package:bookit_vendor_app/view/mycars.dart';
 import 'package:bookit_vendor_app/view/mydriver.dart';
 import 'package:bookit_vendor_app/view/profile_screen.dart';
-import 'package:bookit_vendor_app/view/reports_screen.dart';
+import 'package:bookit_vendor_app/view/wallet_history_screen.dart';
 import 'package:bookit_vendor_app/view/support_screen.dart';
 import 'package:bookit_vendor_app/view/wallet_screen.dart';
 import 'package:bookit_vendor_app/widgets/menu_item.dart';
@@ -93,7 +93,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                     title: 'Assign Driver',
                     icon: Icons.directions_car_outlined,
                     onTap: () {
-                      Get.to(const AssignDriver());
+                      Get.to( AssignDriver());
                     },
                     color: Colors.black,
                     size: 18),
@@ -101,7 +101,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                     title: 'Wallet',
                     icon: Icons.account_balance_wallet_outlined,
                     onTap: () {
-                      Get.to(const WalletScreen());
+                      Get.to( WalletScreen());
                     },
                     color: Colors.black,
                     size: 18),
@@ -114,10 +114,10 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                     color: Colors.black,
                     size: 18),
                 MenuItems(
-                    title: 'Reports',
-                    icon: Icons.report,
+                    title: 'Wallet History',
+                    icon: Icons.account_balance_wallet_sharp,
                     onTap: () {
-                      Get.to(const ReportsScreen());
+                      Get.to(const WalletHistoryScreen());
                     },
                     color: Colors.black,
                     size: 18),

@@ -13,7 +13,7 @@ class ProfileScreen extends StatelessWidget {
     return Scaffold(
       appBar: const CustomAppbar(title: 'Profile'),
       drawer: const DrawerWidget(),
-      body: buildProfile(),
+      body: SingleChildScrollView(child: buildProfile()),
     );
   }
 
