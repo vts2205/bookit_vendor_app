@@ -12,7 +12,6 @@ class BlockedCabs extends StatelessWidget {
         title: 'Blocked Cabs',
       ),
       body: Container(),
-      drawer: const DrawerWidget(),
     );
   }
 }

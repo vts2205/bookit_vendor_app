@@ -1,8 +1,10 @@
+import 'package:bookit_vendor_app/constants/colors.dart';
 import 'package:bookit_vendor_app/widgets/appbar.dart';
 import 'package:bookit_vendor_app/widgets/drawer_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'active_cabs.dart';
 
 class InactiveCabs extends StatelessWidget {
   const InactiveCabs({Key? key}) : super(key: key);
@@ -11,193 +13,76 @@ class InactiveCabs extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const CustomAppbar(title: 'Inactive Cabs'),
-      drawer: const DrawerWidget(),
-      body: SingleChildScrollView(
-        child: Padding(
+      body: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: SizedBox(
-            height: Get.height,
-            child: ListView.builder(
-                shrinkWrap: true,
-                scrollDirection: Axis.vertical,
-                itemCount: 5,
-                itemBuilder: (BuildContext context, int index) => _carCard(
-                    carNo: 'TN38AS1111',
-                    model: 'Alto',
-                    location: 'Sai baba colony',
-                    status: 'booked',
-                    photo: 'car.jpg',
-                    pickuplocation: 'gandipuram',
-                    droplocation: 'navaindia',
-                    tariff: '200')),
-          ),
-        ),
-      ),
+          child: PageView.builder(
+            itemBuilder: (context, index) {
+              return _activeCard(
+                photo: "assets/driver.png",
+                name: 'Raju',
+                phoneno: "9997788445",
+                licenseno: "TND122318SD",
+                status: "Offline",
+                map: "assets/map.png",
+              );
+            },
+            itemCount: 10,
+          )),
     );
   }
 }
 
-Widget _carCard({
-  required String carNo,
-  required String model,
-  required String location,
-  required String status,
+Widget _activeCard({
   required String photo,
-  required String pickuplocation,
-  required String droplocation,
-  required String tariff,
+  required String name,
+  required String phoneno,
+  required String licenseno,
+  required String status,
+  required String map,
 }) {
-  return Card(
-    child: SizedBox(
-      height: Get.height * 0.32,
-      width: Get.width * 0.2,
-      child: Padding(
-        padding: const EdgeInsets.all(18.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  return Padding(
+    padding: const EdgeInsets.all(4.0),
+    child: ListView(
+      children: [
+        Card(
+          child: ListTile(
+            leading: CircleAvatar(
+              backgroundImage: AssetImage(photo),
+            ),
+            title: Text(name),
+            subtitle: Text(phoneno),
+            trailing: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                CircleAvatar(
-                  radius: 50,
-                  backgroundImage: AssetImage(
-                    'assets/$photo',
-                  ),
+                Text(
+                  licenseno,
+                  style: TextStyle(fontSize: 16),
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Text(
-                      "Car No:",
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Text(
-                      "Model: ",
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Text(
-                      "Location:",
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Text(
-                      "Status:",
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Text(
-                      "Pickup:",
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Text(
-                      "Drop:",
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Text(
-                      "Tariff:",
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                  ],
+                Text(
+                  status,
+                  style:
+                      TextStyle(color: Colors.red, fontWeight: FontWeight.w500),
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const SizedBox(
-                      height: 7,
-                    ),
-                    Text(
-                      carNo,
-                      style: const TextStyle(
-                          fontWeight: FontWeight.w400, fontSize: 16),
-                    ),
-                    const SizedBox(
-                      height: 6,
-                    ),
-                    Text(
-                      model,
-                      style: const TextStyle(
-                          fontWeight: FontWeight.w400, fontSize: 16),
-                    ),
-                    const SizedBox(
-                      height: 6,
-                    ),
-                    Text(
-                      location,
-                      style: const TextStyle(
-                          fontWeight: FontWeight.w400, fontSize: 16),
-                    ),
-                    const SizedBox(
-                      height: 6,
-                    ),
-                    Text(
-                      status,
-                      style: const TextStyle(
-                          fontWeight: FontWeight.w400, fontSize: 16),
-                    ),
-                    const SizedBox(
-                      height: 6,
-                    ),
-                    Text(
-                      pickuplocation,
-                      style: const TextStyle(
-                          fontWeight: FontWeight.w400, fontSize: 16),
-                    ),
-                    const SizedBox(
-                      height: 6,
-                    ),
-                    Text(
-                      droplocation,
-                      style: const TextStyle(
-                          fontWeight: FontWeight.w400, fontSize: 16),
-                    ),
-                    const SizedBox(
-                      height: 6,
-                    ),
-                    Text(
-                      tariff,
-                      style: const TextStyle(
-                          fontWeight: FontWeight.w400, fontSize: 16),
-                    ),
-                    const SizedBox(
-                      height: 6,
-                    ),
-                  ],
-                )
               ],
             ),
-          ],
+          ),
         ),
-      ),
+        cardtext(text: "Location"),
+        Card(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: SizedBox(
+              height: Get.height * 0.3,
+              width: Get.width,
+              child: Image.asset(
+                map,
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+        ),
+      ],
     ),
   );
 }

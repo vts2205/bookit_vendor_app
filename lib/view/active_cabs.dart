@@ -85,12 +85,12 @@ Widget _activeCard({
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: SizedBox(
+              height: Get.height * 0.3,
+              width: Get.width,
               child: Image.asset(
                 map,
                 fit: BoxFit.cover,
               ),
-              height: Get.height * 0.3,
-              width: Get.width,
             ),
           ),
         ),
