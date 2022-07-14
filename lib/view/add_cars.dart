@@ -1,12 +1,11 @@
 import 'package:bookit_vendor_app/constants/colors.dart';
-import 'package:bookit_vendor_app/view/widgets/drawer.dart';
+import 'package:bookit_vendor_app/widgets/appbar.dart';
+import 'package:bookit_vendor_app/widgets/drawer_widget.dart';
 import 'package:flutter/material.dart';
-
-import 'widgets/appbar.dart';
 
 class AddCars extends StatelessWidget {
   // AddCars({Key? key}) : super(key: key);
-  GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   late String carmodel;
 
   late String regno;
@@ -23,10 +22,10 @@ class AddCars extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: CustomAppbar(
+        appBar: const CustomAppbar(
           title: 'Add Cars',
         ),
-        drawer: CusDraw(),
+        drawer: const DrawerWidget(),
         body: SingleChildScrollView(
           child: Form(
             key: _formKey,
@@ -78,8 +77,8 @@ class AddCars extends StatelessWidget {
                     validateAndSave();
                   },
                   style: ElevatedButton.styleFrom(primary: green),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                  child: const Padding(
+                    padding: EdgeInsets.all(8.0),
                     child: Text("Submit"),
                   ),
                 )

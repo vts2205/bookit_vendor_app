@@ -1,7 +1,6 @@
+import 'package:bookit_vendor_app/widgets/appbar.dart';
+import 'package:bookit_vendor_app/widgets/drawer_widget.dart';
 import 'package:flutter/material.dart';
-
-import 'widgets/appbar.dart';
-import 'widgets/drawer.dart';
 
 class AssignDriver extends StatelessWidget {
   const AssignDriver({Key? key}) : super(key: key);
@@ -10,8 +9,8 @@ class AssignDriver extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const CustomAppbar(title: 'Assign Drivers'),
-      body: Container(),        drawer: const CusDraw(),
-
+      body: Container(),
+      drawer: const DrawerWidget(),
     );
   }
 }

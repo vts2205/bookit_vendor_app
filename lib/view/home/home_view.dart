@@ -1,13 +1,11 @@
-import 'package:bookit_vendor_app/constants/colors.dart';
-import 'package:bookit_vendor_app/view/widgets/drawer.dart';
+import 'package:bookit_vendor_app/view/home/cab_performance_screen.dart';
 import 'package:bookit_vendor_app/view/active_cabs.dart';
 import 'package:bookit_vendor_app/view/blocked%20cabs.dart';
 import 'package:bookit_vendor_app/view/inactive_cabs.dart';
+import 'package:bookit_vendor_app/widgets/appbar.dart';
+import 'package:bookit_vendor_app/widgets/drawer_widget.dart';
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
-
-import '../widgets/appbar.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({
@@ -22,9 +20,9 @@ class HomeView extends StatelessWidget {
   ) {
     return Scaffold(
       appBar: const CustomAppbar(
-        title: 'Vendor',
+        title: 'Dashboard',
       ),
-      drawer: const CusDraw(),
+      drawer: const DrawerWidget(),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(
@@ -47,6 +45,8 @@ class HomeView extends StatelessWidget {
                       );
                     },
                     text: 'Active Cabs',
+                    topColor: Colors.green,
+                    iconColor: Colors.green,
                   ),
                   _infoCard(
                     iconData: Icons.car_repair,
@@ -57,6 +57,8 @@ class HomeView extends StatelessWidget {
                       );
                     },
                     text: 'InActive Cabs',
+                    topColor: Colors.amber,
+                    iconColor: Colors.amber,
                   ),
                   _infoCard(
                     iconData: Icons.block,
@@ -67,6 +69,8 @@ class HomeView extends StatelessWidget {
                       );
                     },
                     text: 'Blocked Cabs',
+                    topColor: Colors.red,
+                    iconColor: Colors.red,
                   ),
                 ],
               ),
@@ -86,7 +90,7 @@ class HomeView extends StatelessWidget {
                           children: [
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children:  const [
+                              children: const [
                                 Text(
                                   "Collection",
                                   style: TextStyle(
@@ -135,7 +139,8 @@ class HomeView extends StatelessWidget {
                                 Padding(
                                   padding: const EdgeInsets.all(
                                     5.0,
-                                  ),                                  child: Column(
+                                  ),
+                                  child: Column(
                                     children: const [
                                       Text(
                                         "\u{20B9} 61.08",
@@ -163,7 +168,7 @@ class HomeView extends StatelessWidget {
                                     5.0,
                                   ),
                                   child: Column(
-                                    children:  [
+                                    children: [
                                       const Text(
                                         "\u{20B9} 61.08",
                                       ),
@@ -253,7 +258,9 @@ class HomeView extends StatelessWidget {
                       ),
                     ),
                     TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.to(const CabPerformanceScreen());
+                        },
                         child: const Text(
                           "View All",
                           style: TextStyle(
@@ -263,43 +270,24 @@ class HomeView extends StatelessWidget {
                   ],
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 15,
-                ),
-                child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: const [
-                      Text(
-                        "01 Jul 2022  -  10 Jul 2022",
-                        style: TextStyle(
-                          color: Colors.grey,
-                          fontSize: 15,
-                        ),
-                      ),
-                      Icon(
-                        Icons.keyboard_arrow_down,
-                      )
-                    ]),
-              ),
               SizedBox(
                 height: 150,
                 // child: Expanded(
-                  child: ListView.builder(
-                    shrinkWrap: true,
-                    scrollDirection: Axis.horizontal,
-                    itemCount: 4,
-                    itemBuilder: (
-                      BuildContext context,
-                      int index,
-                    ) =>
-                        _cabcard(
-                      cabno: "TN38AS1111",
-                      amount: "11806.83 ",
-                      rating: "4.5",
-                      rides: 8,
-                    ),
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 4,
+                  itemBuilder: (
+                    BuildContext context,
+                    int index,
+                  ) =>
+                      _cabcard(
+                    cabno: "TN38AS1111",
+                    amount: "11806.83 ",
+                    rating: "4.5",
+                    rides: 8,
                   ),
+                ),
                 // ),
               ),
               Padding(
@@ -327,44 +315,25 @@ class HomeView extends StatelessWidget {
                   ],
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 15,
-                ),
-                child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: const [
-                      Text(
-                        "01 Jul 2022  -  10 Jul 2022",
-                        style: TextStyle(
-                          color: Colors.grey,
-                          fontSize: 15,
-                        ),
-                      ),
-                      Icon(
-                        Icons.keyboard_arrow_down,
-                      )
-                    ]),
-              ),
               SizedBox(
                 height: 150,
                 // child: Expanded(
-                  child: ListView.builder(
-                    shrinkWrap: true,
-                    scrollDirection: Axis.horizontal,
-                    itemCount: 4,
-                    itemBuilder: (
-                      BuildContext context,
-                      int index,
-                    ) =>
-                        _drivercard(
-                      drivername: 'Raja',
-                      earning: '11806',
-                      photo: 'driver.png',
-                      rating: '4.5',
-                      rides: 18,
-                    ),
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 4,
+                  itemBuilder: (
+                    BuildContext context,
+                    int index,
+                  ) =>
+                      _drivercard(
+                    drivername: 'Raja',
+                    earning: '11806',
+                    photo: 'driver.png',
+                    rating: '4.5',
+                    rides: 18,
                   ),
+                ),
                 // ),
               ),
             ],
@@ -378,7 +347,9 @@ class HomeView extends StatelessWidget {
 Widget _infoCard({
   required int no,
   required IconData iconData,
+  required Color iconColor,
   required String text,
+  required Color topColor,
   required VoidCallback ontap,
 }) {
   return InkWell(
@@ -388,10 +359,10 @@ Widget _infoCard({
         width: Get.width * 0.27,
         height: Get.height * 0.13,
         child: Column(children: [
-           Divider(
+          Divider(
             height: 5,
-            color: green,
-            thickness: 10,
+            color: topColor,
+            thickness: 5,
           ),
           Padding(
             padding: const EdgeInsets.all(
@@ -415,7 +386,7 @@ Widget _infoCard({
                 ),
                 Icon(
                   iconData,
-                  color: Colors.grey,
+                  color: iconColor,
                 )
               ],
             ),

@@ -80,7 +80,7 @@ class OnBoardingScreen extends StatelessWidget {
                 elevation: 0,
                 onPressed: () {
                   controller.isLastPage
-                      ? Get.offAll(const LoginScreen())
+                      ? Get.offAll(LoginScreen())
                       : controller.forwardAction();
                 },
                 child: Obx(() {

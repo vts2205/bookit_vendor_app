@@ -1,5 +1,6 @@
 import 'package:bookit_vendor_app/constants/colors.dart';
 import 'package:bookit_vendor_app/view/home/home_view.dart';
+import 'package:bookit_vendor_app/view/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomeView(),
+      home: const SplashScreen(),
     );
   }
 }

@@ -1,7 +1,6 @@
+import 'package:bookit_vendor_app/widgets/appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import 'widgets/appbar.dart';
 
 class ActiveCabs extends StatelessWidget {
   const ActiveCabs({Key? key}) : super(key: key);

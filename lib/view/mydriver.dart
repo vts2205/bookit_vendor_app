@@ -1,8 +1,7 @@
-import 'package:bookit_vendor_app/view/widgets/drawer.dart';
+import 'package:bookit_vendor_app/widgets/appbar.dart';
+import 'package:bookit_vendor_app/widgets/drawer_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import 'widgets/appbar.dart';
 
 class Mydriver extends StatelessWidget {
   const Mydriver({Key? key}) : super(key: key);
@@ -13,6 +12,7 @@ class Mydriver extends StatelessWidget {
       appBar: const CustomAppbar(
         title: 'My Drivers',
       ),
+      drawer: const DrawerWidget(),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -48,7 +48,6 @@ class Mydriver extends StatelessWidget {
           ],
         ),
       ),
-      drawer: CusDraw(),
     );
   }
 }

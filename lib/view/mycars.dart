@@ -1,9 +1,8 @@
 import 'package:bookit_vendor_app/view/add_cars.dart';
-import 'package:bookit_vendor_app/view/widgets/appbar.dart';
+import 'package:bookit_vendor_app/widgets/appbar.dart';
+import 'package:bookit_vendor_app/widgets/drawer_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import 'widgets/drawer.dart';
 
 class MyCars extends StatelessWidget {
   const MyCars({Key? key}) : super(key: key);
@@ -12,6 +11,7 @@ class MyCars extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const CustomAppbar(title: 'My Cars'),
+      drawer: const DrawerWidget(),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -53,10 +53,9 @@ class MyCars extends StatelessWidget {
           ],
         ),
       ),
-      drawer: const CusDraw(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Get.to( AddCars());
+          Get.to(AddCars());
         },
         child: const Icon(
           Icons.add,
