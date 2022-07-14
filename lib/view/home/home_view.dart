@@ -2,6 +2,7 @@ import 'package:bookit_vendor_app/view/home/cab_performance_screen.dart';
 import 'package:bookit_vendor_app/view/active_cabs.dart';
 import 'package:bookit_vendor_app/view/blocked%20cabs.dart';
 import 'package:bookit_vendor_app/view/inactive_cabs.dart';
+import 'package:bookit_vendor_app/view/my_earings_screen.dart';
 import 'package:bookit_vendor_app/widgets/appbar.dart';
 import 'package:bookit_vendor_app/widgets/drawer_widget.dart';
 import 'package:flutter/material.dart';
@@ -218,24 +219,29 @@ class HomeView extends StatelessWidget {
                             const Divider(
                               height: 20,
                             ),
-                            Padding(
-                              padding: const EdgeInsets.all(
-                                8.0,
-                              ),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: const [
-                                  Text(
-                                    "Net Earnings",
-                                    style: TextStyle(
-                                      fontSize: 16,
+                            InkWell(
+                              onTap: (() {
+                                Get.to(MyEarningsScreen());
+                              }),
+                              child: Padding(
+                                padding: const EdgeInsets.all(
+                                  8.0,
+                                ),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: const [
+                                    Text(
+                                      "Net Earnings",
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                      ),
                                     ),
-                                  ),
-                                  Icon(
-                                    Icons.keyboard_arrow_right,
-                                  )
-                                ],
+                                    Icon(
+                                      Icons.keyboard_arrow_right,
+                                    )
+                                  ],
+                                ),
                               ),
                             )
                           ],
