@@ -1,9 +1,12 @@
 import 'package:bookit_vendor_app/constants/colors.dart';
 import 'package:bookit_vendor_app/view/wallet_screen.dart';
 import 'package:bookit_vendor_app/widgets/appbar.dart';
+import 'package:bookit_vendor_app/widgets/custom_elevatedbtn.dart';
+import 'package:bookit_vendor_app/widgets/custom_textfield.dart';
 import 'package:bookit_vendor_app/widgets/drawer_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 
 class AssignDriver extends StatelessWidget {
@@ -33,42 +36,8 @@ class AssignDriver extends StatelessWidget {
         child: Form(
           key: formKey,
           child: Column(children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: TypeAheadFormField(
-                  textFieldConfiguration: TextFieldConfiguration(
-                      controller: vehicleNumber,
-                      decoration: InputDecoration(
-                        hintText: 'Select your Vehicle',
-                        contentPadding: const EdgeInsets.all(10),
-                        border: const OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.black)),
-                        focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: green, width: 2)),
-                      )),
-                  suggestionsCallback: (pattern) {
-                    return vechileNumber.where((item) =>
-                        item.toLowerCase().contains(pattern.toLowerCase()));
-                  },
-                  onSuggestionSelected: (String val) {
-                    this.vehicleNumber.text = val;
-                    print(val);
-                  },
-                  itemBuilder: (_, String item) {
-                    return ListTile(
-                      title: Text(item),
-                    );
-                  },
-                  getImmediateSuggestions: true,
-                  hideSuggestionsOnKeyboardHide: true,
-                  hideOnEmpty: false,
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'Select Vehicle Number';
-                    }
-                    return null;
-                  }),
-            ),
+            vehicleDropdown(
+                vehicleNumber: vehicleNumber, vechileNumber: vechileNumber),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: TypeAheadFormField(
@@ -105,66 +74,96 @@ class AssignDriver extends StatelessWidget {
                     return null;
                   }),
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: TextFormField(
-                controller: driverPhonenumber,
-                decoration: InputDecoration(
-                  hintText: 'Driver Phone Number',
-                  contentPadding: const EdgeInsets.all(10),
-                  border: const OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.black)),
-                  focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: green, width: 2)),
-                ),
-                validator: (value) {
-                  if (value?.length != 10) {
-                    return 'Enter Correct Phonenumber';
-                  }
-                },
-                keyboardType: TextInputType.number,
-              ),
+            CustomTextField(
+              hinttext: 'Driver Phone Number',
+              controller: driverPhonenumber,
+              validator: (value) {
+                if (value?.length != 10) {
+                  return 'Enter Correct Phonenumber';
+                }
+              },
+              keyboardtype: TextInputType.number,
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: TextFormField(
-                controller: licenseNumber,
-                decoration: InputDecoration(
-                  hintText: 'License number',
-                  contentPadding: const EdgeInsets.all(10),
-                  border: const OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.black)),
-                  focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: green, width: 2)),
-                ),
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Enter License Number';
-                  }
-                },
-                keyboardType: TextInputType.text,
-              ),
+            CustomTextField(
+              hinttext: 'License number',
+              controller: licenseNumber,
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return 'Enter License Number';
+                }
+              },
+              keyboardtype: TextInputType.text,
             ),
             SizedBox(
-              width: Get.width * 0.3,
-              height: Get.height * 0.06,
-              child: ElevatedButton(
+                width: Get.width * 0.3,
+                height: Get.height * 0.06,
+                child: CustomElevatedbutton(
+                  text: "Assign",
+                  fontsize: 18,
                   onPressed: () {
                     if (formKey.currentState!.validate()) {
-                      print("Success");
+                      Fluttertoast.showToast(
+                          msg: "Driver Assigned Successfully");
                     } else {
-                      print('enter required fields');
+                      Fluttertoast.showToast(
+                          msg: 'enter required fields', fontSize: 16);
                     }
                   },
-                  style: ElevatedButton.styleFrom(primary: green),
-                  child: Text(
-                    "Assign",
-                    textScaleFactor: Get.textScaleFactor,
-                  )),
-            )
+                ))
           ]),
         ),
       ),
+    );
+  }
+}
+
+class vehicleDropdown extends StatelessWidget {
+  const vehicleDropdown({
+    Key? key,
+    required this.vehicleNumber,
+    required this.vechileNumber,
+  }) : super(key: key);
+
+  final TextEditingController vehicleNumber;
+  final List<String> vechileNumber;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TypeAheadFormField(
+          textFieldConfiguration: TextFieldConfiguration(
+              controller: vehicleNumber,
+              decoration: InputDecoration(
+                hintText: 'Select your Vehicle',
+                contentPadding: const EdgeInsets.all(10),
+                border: const OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.black)),
+                focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: green, width: 2)),
+              )),
+          suggestionsCallback: (pattern) {
+            return vechileNumber.where(
+                (item) => item.toLowerCase().contains(pattern.toLowerCase()));
+          },
+          onSuggestionSelected: (String val) {
+            this.vehicleNumber.text = val;
+            print(val);
+          },
+          itemBuilder: (_, String item) {
+            return ListTile(
+              title: Text(item),
+            );
+          },
+          getImmediateSuggestions: true,
+          hideSuggestionsOnKeyboardHide: true,
+          hideOnEmpty: false,
+          validator: (value) {
+            if (value!.isEmpty) {
+              return 'Select Vehicle Number';
+            }
+            return null;
+          }),
     );
   }
 }

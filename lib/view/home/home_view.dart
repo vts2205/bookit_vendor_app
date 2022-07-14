@@ -80,7 +80,7 @@ class HomeView extends StatelessWidget {
                 ),
                 child: Card(
                   child: SizedBox(
-                      height: Get.height * 0.35,
+                      height: Get.height * 0.36,
                       width: Get.width,
                       child: Padding(
                         padding: const EdgeInsets.all(

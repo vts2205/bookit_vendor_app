@@ -93,7 +93,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                     title: 'Assign Driver',
                     icon: Icons.directions_car_outlined,
                     onTap: () {
-                      Get.to( AssignDriver());
+                      Get.to(AssignDriver());
                     },
                     color: Colors.black,
                     size: 18),
@@ -101,15 +101,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                     title: 'Wallet',
                     icon: Icons.account_balance_wallet_outlined,
                     onTap: () {
-                      Get.to( WalletScreen());
-                    },
-                    color: Colors.black,
-                    size: 18),
-                MenuItems(
-                    title: 'My Earnings',
-                    icon: Icons.monetization_on,
-                    onTap: () {
-                      Get.to(const MyEarningsScreen());
+                      Get.to(WalletScreen());
                     },
                     color: Colors.black,
                     size: 18),
@@ -118,6 +110,14 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                     icon: Icons.account_balance_wallet_sharp,
                     onTap: () {
                       Get.to(const WalletHistoryScreen());
+                    },
+                    color: Colors.black,
+                    size: 18),
+                MenuItems(
+                    title: 'My Earnings',
+                    icon: Icons.monetization_on,
+                    onTap: () {
+                      Get.to(const MyEarningsScreen());
                     },
                     color: Colors.black,
                     size: 18),

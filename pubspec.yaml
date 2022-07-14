@@ -39,6 +39,7 @@ dependencies:
   camera: ^0.9.4+5
 
   flutter_typeahead: ^4.0.0
+  fluttertoast: ^8.0.9
 
 dev_dependencies:
   flutter_test:
