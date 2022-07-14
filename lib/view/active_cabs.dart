@@ -1,3 +1,4 @@
+import 'package:bookit_vendor_app/constants/colors.dart';
 import 'package:bookit_vendor_app/widgets/appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -51,307 +52,143 @@ Widget _activeCard({
   required String walletspent,
   required String walletbalance,
 }) {
-  return SingleChildScrollView(
-    child: Padding(
-      padding: const EdgeInsets.all(5.0),
-      child: SizedBox(
-        child: Column(
-          children: [
-            Card(
-              child: ListTile(
-                leading: CircleAvatar(
-                  backgroundImage: AssetImage(photo),
-                ),
-                title: Text(name),
-                subtitle: Text(phoneno),
-                trailing: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Text(
-                      licenseno,
-                      style: TextStyle(fontSize: 16),
-                    ),
-                    Text(
-                      status,
-                      style: TextStyle(
-                          color: Colors.green, fontWeight: FontWeight.w500),
-                    ),
-                  ],
-                ),
-              ),
+  return Padding(
+    padding: const EdgeInsets.all(4.0),
+    child: ListView(
+      children: [
+        Card(
+          child: ListTile(
+            leading: CircleAvatar(
+              backgroundImage: AssetImage(photo),
             ),
-            Card(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: SizedBox(
-                  child: Image.asset(
-                    map,
-                    fit: BoxFit.cover,
-                  ),
-                  height: Get.height * 0.3,
-                  width: Get.width,
+            title: Text(name),
+            subtitle: Text(phoneno),
+            trailing: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Text(
+                  licenseno,
+                  style: TextStyle(fontSize: 16),
                 ),
-              ),
+                Text(
+                  status,
+                  style: TextStyle(
+                      color: Colors.green, fontWeight: FontWeight.w500),
+                ),
+              ],
             ),
-            Card(
-                child: Padding(
+          ),
+        ),
+        cardtext(text: "Location"),
+        Card(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: SizedBox(
+              child: Image.asset(
+                map,
+                fit: BoxFit.cover,
+              ),
+              height: Get.height * 0.3,
+              width: Get.width,
+            ),
+          ),
+        ),
+        cardtext(
+          text: "Invoice",
+        ),
+        Card(
+            child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(children: [
+            Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Column(children: [
+              child: Row(
+                children: [Text("BaseFare"), Spacer(), Text(basefare)],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  Text("Additional charges"),
+                  Spacer(),
+                  Text(addcharge)
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                children: [Text("Convenience fee"), Spacer(), Text(confee)],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                children: [Text("GST"), Spacer(), Text(gst)],
+              ),
+            ),
+            Divider(),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                children: [Text("Total"), Spacer(), Text(total)],
+              ),
+            ),
+          ]),
+        )),
+        cardtext(
+          text: "Wallet",
+        ),
+        Card(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: [
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
-                    children: [Text("BaseFare"), Spacer(), Text(basefare)],
+                    children: [Text("Total"), Spacer(), Text(wallettotal)],
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
-                    children: [
-                      Text("Additional charges"),
-                      Spacer(),
-                      Text(addcharge)
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    children: [Text("Convenience fee"), Spacer(), Text(confee)],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    children: [Text("GST"), Spacer(), Text(gst)],
+                    children: [Text("Spent"), Spacer(), Text(walletspent)],
                   ),
                 ),
                 Divider(),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
-                    children: [Text("Total"), Spacer(), Text(total)],
+                    children: [Text("Balance"), Spacer(), Text(walletbalance)],
                   ),
-                ),
-              ]),
-            )),
-            Card(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        children: [
-                          Text("Wallet Balance"),
-                          Spacer(),
-                          Text(walletbalance)
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        children: [
-                          Text("Wallet Spent"),
-                          Spacer(),
-                          Text(walletspent)
-                        ],
-                      ),
-                    ),
-                    Divider(),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        children: [
-                          Text("Wallet Total"),
-                          Spacer(),
-                          Text(wallettotal)
-                        ],
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            )
-          ],
-        ),
-      ),
+                )
+              ],
+            ),
+          ),
+        )
+      ],
     ),
   );
 }
-    // height: Get.height,
-    // child: Column(
-    //   crossAxisAlignment: CrossAxisAlignment.start,
-    //   children: [
-    //     Card(
-    //       child: ListTile(
-    //     //     leading: CircleAvatar(
-        //       radius: 50,
-        //       backgroundImage: AssetImage(
-        //         'assets/$photo',
-        //       ),
-        //     ),
-        //     title: Text(drivername),
-        //     subtitle: Text(),
-        //   ),
-        // ),
-        // ListTile(
-        //   // leading:
-        //   // title: ,
-        //   subtitle: Column(
-        //     crossAxisAlignment: CrossAxisAlignment.start,
-        //     children: [
-        //       const SizedBox(
-        //         height: 7,
-        //       ),
-        //       Text(
-        //         licenseno,
-        //         style:
-        //             const TextStyle(fontWeight: FontWeight.w400, fontSize: 14),
-        //       ),
-        //       const SizedBox(
-        //         height: 7,
-        //       ),
-        //       Text(
-        //         carNo,
-        //         style:
-        //             const TextStyle(fontWeight: FontWeight.w400, fontSize: 14),
-        //       ),
-        //       const SizedBox(
-        //         height: 6,
-        //       ),
-        //       Text(
-        //         model,
-        //         style:
-        //             const TextStyle(fontWeight: FontWeight.w400, fontSize: 14),
-        //       ),
-        //       const SizedBox(
-        //         height: 6,
-        //       ),
-        //       Text(
-        //         status,
-        //         style:
-        //             const TextStyle(fontWeight: FontWeight.w400, fontSize: 14),
-        //       ),
-        //       const SizedBox(
-        //         height: 6,
-        //       ),
-        //       Text(
-        //         pickuplocation,
-        //         style:
-        //             const TextStyle(fontWeight: FontWeight.w400, fontSize: 14),
-        //       ),
-        //       const SizedBox(
-        //         height: 6,
-        //       ),
-        //       Text(
-        //         droplocation,
-        //         style:
-        //             const TextStyle(fontWeight: FontWeight.w400, fontSize: 14),
-        //       ),
-        //       const SizedBox(
-        //         height: 6,
-        //       ),
-        //       Text(
-        //         tariff,
-        //         style:
-        //             const TextStyle(fontWeight: FontWeight.w400, fontSize: 14),
-        //       ),
-        //       const SizedBox(
-        //         height: 6,
-        //       ),
-        //       Row(
-        //         children: [
-        //           const Icon(
-        //             Icons.star,
-        //             color: Colors.amber,
-        //           ),
-        //           Text(
-        //             rating,
-        //             style: const TextStyle(fontWeight: FontWeight.bold),
-        //           ),
-        //         ],
-        //       ),
-        //     ],
-        //   ),
-        // ),
-        // Row(
-        //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        //   children: [
-        //     Column(
-        //       crossAxisAlignment: CrossAxisAlignment.start,
-        //       children: const [
-        //         SizedBox(
-        //           height: 5,
-        //         ),
-        //         Text(
-        //           "Driver Name:",
-        //           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
-        //         ),
-        //         SizedBox(
-        //           height: 5,
-        //         ),
-        //         Text(
-        //           "License No:",
-        //           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
-        //         ),
-        //         SizedBox(
-        //           height: 5,
-        //         ),
-        //         Text(
-        //           "Car No:",
-        //           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
-        //         ),
-        //         SizedBox(
-        //           height: 5,
-        //         ),
-        //         Text(
-        //           "Model: ",
-        //           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
-        //         ),
-        //         SizedBox(
-        //           height: 5,
-        //         ),
-        //         Text(
-        //           "Status:",
-        //           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
-        //         ),
-        //         SizedBox(
-        //           height: 5,
-        //         ),
-        //         Text(
-        //           "Pickup:",
-        //           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
-        //         ),
-        //         SizedBox(
-        //           height: 5,
-        //         ),
-        //         Text(
-        //           "Drop:",
-        //           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
-        //         ),
-        //         SizedBox(
-        //           height: 5,
-        //         ),
-        //         Text(
-        //           "Tariff:",
-        //           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
-        //         ),
-        //         SizedBox(
-        //           height: 5,
-        //         ),
-        //         Text(
-        //           "Rating:",
-        //           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
-        //         ),
-        //       ],
-        //     ),
-        //
-        //   ],
-        // ),
-//       ],
-//     ),
-//   );
-// }
+
+class cardtext extends StatelessWidget {
+  cardtext({
+    Key? key,
+    required this.text,
+  }) : super(key: key);
+  final String text;
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      child: Text(
+        text,
+        textAlign: TextAlign.center,
+        style:
+            TextStyle(fontSize: 18, fontWeight: FontWeight.w500, color: blue),
+      ),
+    );
+  }
+}
