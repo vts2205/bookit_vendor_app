@@ -278,7 +278,6 @@ class HomeView extends StatelessWidget {
               ),
               SizedBox(
                 height: 150,
-                // child: Expanded(
                 child: ListView.builder(
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
@@ -294,7 +293,6 @@ class HomeView extends StatelessWidget {
                     rides: 8,
                   ),
                 ),
-                // ),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(
@@ -323,7 +321,6 @@ class HomeView extends StatelessWidget {
               ),
               SizedBox(
                 height: 150,
-                // child: Expanded(
                 child: ListView.builder(
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
@@ -340,7 +337,6 @@ class HomeView extends StatelessWidget {
                     rides: 18,
                   ),
                 ),
-                // ),
               ),
             ],
           ),
