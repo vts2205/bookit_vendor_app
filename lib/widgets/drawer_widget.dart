@@ -40,8 +40,11 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                   },
                   child: Row(
                     children: [
-                      const CircleAvatar(
+                      CircleAvatar(
                         radius: 30,
+                        child: Image.asset(
+                          'assets/driver.png',
+                        ),
                       ),
                       const SizedBox(width: 10),
                       Column(
@@ -122,7 +125,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                     color: Colors.black,
                     size: 18),
                 MenuItems(
-                    title: 'Support',
+                    title: 'Vendor Care',
                     icon: Icons.support,
                     onTap: () {
                       Get.to(const SupportScreen());

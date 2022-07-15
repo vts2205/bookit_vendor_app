@@ -25,7 +25,6 @@ class AddCars extends StatelessWidget {
         appBar: const CustomAppbar(
           title: 'Add Cars',
         ),
-        drawer: const DrawerWidget(),
         body: SingleChildScrollView(
           child: Form(
             key: _formKey,
@@ -40,14 +39,15 @@ class AddCars extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(15.0),
                   child: TextFormField(
+                    cursorColor: green,
                     decoration: InputDecoration(
-                      contentPadding: const EdgeInsets.all(10),
-                      labelText: 'Car Registration Number',
-                      hintText: 'Registration Number',
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                    ),
+                        contentPadding: const EdgeInsets.all(10),
+                        hintText: 'Registration Number',
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: green, width: 2))),
                     validator: (value) {
                       if (value!.isEmpty) {
                         return 'Enter Registration Number';
@@ -59,14 +59,15 @@ class AddCars extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(15.0),
                   child: TextFormField(
+                    cursorColor: green,
                     decoration: InputDecoration(
-                      contentPadding: const EdgeInsets.all(10),
-                      labelText: 'Car Model',
-                      hintText: 'Model',
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                    ),
+                        contentPadding: const EdgeInsets.all(10),
+                        hintText: 'Model',
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: green, width: 2))),
                     validator: (value) =>
                         value!.isEmpty ? 'Password cannot be blank' : null,
                   ),

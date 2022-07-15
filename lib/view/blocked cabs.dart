@@ -11,7 +11,27 @@ class BlockedCabs extends StatelessWidget {
       appBar: const CustomAppbar(
         title: 'Blocked Cabs',
       ),
-      body: Container(),
+      body: buildBlockedCabs(),
+    );
+  }
+
+  buildBlockedCabs() {
+    return SizedBox(
+      child: ListView.builder(
+          itemCount: 10,
+          itemBuilder: (context, index) {
+            return const ListTile(
+              title: Text('TN01AB9999'),
+
+              //vehicle number
+              subtitle: Text('Payment overdue'),
+
+              //reason
+              trailing: Text('31-05-2022'),
+
+              //date of journey
+            );
+          }),
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:bookit_vendor_app/view/home/cab_performance_screen.dart';
 import 'package:bookit_vendor_app/view/active_cabs.dart';
 import 'package:bookit_vendor_app/view/blocked%20cabs.dart';
+import 'package:bookit_vendor_app/view/home/driver_performance_screen.dart';
 import 'package:bookit_vendor_app/view/inactive_cabs.dart';
 import 'package:bookit_vendor_app/view/my_earings_screen.dart';
 import 'package:bookit_vendor_app/widgets/appbar.dart';
@@ -291,6 +292,7 @@ class HomeView extends StatelessWidget {
                     amount: "11806.83 ",
                     rating: "4.5",
                     rides: 8,
+                    photo: 'car2.png',
                   ),
                 ),
               ),
@@ -309,7 +311,9 @@ class HomeView extends StatelessWidget {
                       ),
                     ),
                     TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.to(const DriverPerformanceScreen());
+                        },
                         child: const Text(
                           "View All",
                           style: TextStyle(
@@ -401,6 +405,7 @@ Widget _infoCard({
 }
 
 Widget _cabcard({
+  required String photo,
   required String cabno,
   required String amount,
   required String rating,
@@ -408,7 +413,7 @@ Widget _cabcard({
 }) {
   return Card(
     child: SizedBox(
-      width: Get.width * 0.46,
+      width: Get.width * 0.50,
       height: Get.height * 0.15,
       child: Padding(
         padding: const EdgeInsets.all(
@@ -419,18 +424,34 @@ Widget _cabcard({
             const SizedBox(
               height: 15,
             ),
-            Text(
-              cabno,
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Text(
-              "\u{20B9}$amount",
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 16,
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                CircleAvatar(
+                  backgroundColor: Colors.transparent,
+                  radius: 25,
+                  child: Image.asset(
+                    'assets/$photo',
+                  ),
+                ),
+                Column(
+                  children: [
+                    Text(
+                      cabno,
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      "\u{20B9}$amount",
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ],
+                )
+              ],
             ),
             const SizedBox(
               height: 20,
@@ -470,7 +491,7 @@ Widget _drivercard({
 }) {
   return Card(
     child: SizedBox(
-      width: Get.width * 0.46,
+      width: Get.width * 0.50,
       height: Get.height * 0.15,
       child: Padding(
         padding: const EdgeInsets.all(
@@ -479,10 +500,10 @@ Widget _drivercard({
         child: Column(
           children: [
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 CircleAvatar(
-                  radius: 30,
+                  radius: 25,
                   child: Image.asset(
                     'assets/$photo',
                   ),

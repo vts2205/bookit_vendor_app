@@ -1,3 +1,4 @@
+import 'package:bookit_vendor_app/constants/colors.dart';
 import 'package:bookit_vendor_app/view/add_cars.dart';
 import 'package:bookit_vendor_app/widgets/appbar.dart';
 import 'package:bookit_vendor_app/widgets/drawer_widget.dart';
@@ -54,11 +55,13 @@ class MyCars extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: green,
         onPressed: () {
           Get.to(AddCars());
         },
         child: const Icon(
           Icons.add,
+          size: 40,
         ),
       ),
     );

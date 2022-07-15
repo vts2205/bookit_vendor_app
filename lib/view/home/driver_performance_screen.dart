@@ -3,20 +3,21 @@ import 'package:bookit_vendor_app/widgets/appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-class CabPerformanceScreen extends StatefulWidget {
-  const CabPerformanceScreen({Key? key}) : super(key: key);
+class DriverPerformanceScreen extends StatefulWidget {
+  const DriverPerformanceScreen({Key? key}) : super(key: key);
 
   @override
-  State<CabPerformanceScreen> createState() => _CabPerformanceScreenState();
+  State<DriverPerformanceScreen> createState() =>
+      _DriverPerformanceScreenState();
 }
 
-class _CabPerformanceScreenState extends State<CabPerformanceScreen> {
+class _DriverPerformanceScreenState extends State<DriverPerformanceScreen> {
   final startDate = TextEditingController();
   final endDate = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: const CustomAppbar(title: 'Cab Performance'),
+        appBar: const CustomAppbar(title: 'Driver Performance'),
         body: Padding(
             padding: const EdgeInsets.all(10),
             child: Column(
@@ -125,9 +126,9 @@ class _CabPerformanceScreenState extends State<CabPerformanceScreen> {
           itemCount: 10,
           itemBuilder: (context, index) {
             return ListTile(
-              title: const Text('TN01AB0001'),
+              title: const Text('Nivy'),
 
-              //vehicle number
+              //driver name
               subtitle: const Text('ABCDE12345'),
 
               //booking id
