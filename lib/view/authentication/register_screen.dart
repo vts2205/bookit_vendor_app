@@ -142,6 +142,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     if (value?.length != 10) {
                       return "Enter a valid phone number";
                     }
+                    return null;
                   },
                 ),
                 const SizedBox(height: 20),
@@ -158,6 +159,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     if (value!.isEmpty) {
                       return "Enter a valid password";
                     }
+                    return null;
                   },
                 ),
                 const SizedBox(height: 20),

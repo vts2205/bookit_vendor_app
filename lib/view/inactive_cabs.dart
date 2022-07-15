@@ -1,6 +1,4 @@
-import 'package:bookit_vendor_app/constants/colors.dart';
 import 'package:bookit_vendor_app/widgets/appbar.dart';
-import 'package:bookit_vendor_app/widgets/drawer_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -57,18 +55,18 @@ Widget _activeCard({
               children: [
                 Text(
                   licenseno,
-                  style: TextStyle(fontSize: 16),
+                  style: const TextStyle(fontSize: 16),
                 ),
                 Text(
                   status,
                   style:
-                      TextStyle(color: Colors.red, fontWeight: FontWeight.w500),
+                      const TextStyle(color: Colors.red, fontWeight: FontWeight.w500),
                 ),
               ],
             ),
           ),
         ),
-        cardtext(text: "Location"),
+        const Cardtext(text: "Location"),
         Card(
           child: Padding(
             padding: const EdgeInsets.all(8.0),

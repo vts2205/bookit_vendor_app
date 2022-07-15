@@ -221,7 +221,7 @@ class HomeView extends StatelessWidget {
                             ),
                             InkWell(
                               onTap: (() {
-                                Get.to(MyEarningsScreen());
+                                Get.to(const MyEarningsScreen());
                               }),
                               child: Padding(
                                 padding: const EdgeInsets.all(

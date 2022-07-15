@@ -7,9 +7,9 @@ class SupportScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       appBar: CustomAppbar(title: 'Support'),
-      drawer: DrawerWidget(),
+      drawer:  DrawerWidget(),
     );
   }
 }

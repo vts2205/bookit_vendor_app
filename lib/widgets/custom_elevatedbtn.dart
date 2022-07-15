@@ -7,16 +7,16 @@ class CustomElevatedbutton extends StatelessWidget {
       {Key? key,
       this.onPressed,
       required this.text,
-      this.Color,
+      this.color,
       this.fontsize,
-      this.FontWeight})
+      this.fontWeight})
       : super(key: key);
   final onPressed;
   final String text;
 
-  final Color;
+  final color;
   final double? fontsize;
-  final FontWeight;
+  final fontWeight;
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
@@ -25,7 +25,7 @@ class CustomElevatedbutton extends StatelessWidget {
         child: Text(
           text,
           style: TextStyle(
-              color: Color, fontSize: fontsize ?? 16, fontWeight: FontWeight),
+              color: color, fontSize: fontsize ?? 16, fontWeight: fontWeight),
           textScaleFactor: Get.textScaleFactor,
         ));
   }

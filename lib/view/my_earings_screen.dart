@@ -23,19 +23,19 @@ class MyEarningsScreen extends StatelessWidget {
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
                   child: Card(
                     child: ListTile(
-                      title: CustomText(
+                      title: const CustomText(
                           text: "TN05RE1234",
                         ),
-                      subtitle: CustomText(text: "5FQCWFX740WC",                        fontsize: 15,
+                      subtitle: const CustomText(text: "5FQCWFX740WC",                        fontsize: 15,
 ),
                        trailing: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
+                        children: const [
                           CustomText(
                             text: "\u{20B9}2656",
                             fontsize: 15,
-                            FontWeight: FontWeight.w600,
+                            fontWeight: FontWeight.w600,
                           ),
                           CustomText(
                             text: "14-07-2022",

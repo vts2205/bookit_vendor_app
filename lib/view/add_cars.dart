@@ -4,7 +4,7 @@ import 'package:bookit_vendor_app/widgets/drawer_widget.dart';
 import 'package:flutter/material.dart';
 
 class AddCars extends StatelessWidget {
-  // AddCars({Key? key}) : super(key: key);
+  AddCars({Key? key}) : super(key: key);
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   late String carmodel;
 

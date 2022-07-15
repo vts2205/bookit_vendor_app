@@ -3,20 +3,20 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 class CustomText extends StatelessWidget {
-  const CustomText({Key? key, required this.text, this.Color, this.fontsize, this.FontWeight})
+  const CustomText({Key? key, required this.text, this.color, this.fontsize, this.fontWeight})
       : super(key: key);
   final String text;
-  final Color;
+  final color;
   final double? fontsize;
-  final FontWeight;
+  final fontWeight;
   @override
   Widget build(BuildContext context) {
     return Text(
       text,
       style: TextStyle(
-        color: Color,
+        color: color,
         fontSize: fontsize ?? 16,
-        fontWeight: FontWeight
+        fontWeight: fontWeight
       ),
       textScaleFactor: Get.textScaleFactor,
     );

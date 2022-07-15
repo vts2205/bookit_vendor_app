@@ -40,7 +40,7 @@ class WalletHistoryScreen extends StatelessWidget {
                           CustomText(
                             text: "\u{20B9}2656",
                             fontsize: 15,
-                            FontWeight: FontWeight.w600,
+                            fontWeight: FontWeight.w600,
                           ),
                           CustomText(
                             text: "14-07-2022",

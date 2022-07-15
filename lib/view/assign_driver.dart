@@ -1,5 +1,4 @@
 import 'package:bookit_vendor_app/constants/colors.dart';
-import 'package:bookit_vendor_app/view/wallet_screen.dart';
 import 'package:bookit_vendor_app/widgets/appbar.dart';
 import 'package:bookit_vendor_app/widgets/custom_elevatedbtn.dart';
 import 'package:bookit_vendor_app/widgets/custom_textfield.dart';
@@ -36,7 +35,7 @@ class AssignDriver extends StatelessWidget {
         child: Form(
           key: formKey,
           child: Column(children: [
-            vehicleDropdown(
+            VehicleDropdown(
                 vehicleNumber: vehicleNumber, vechileNumber: vechileNumber),
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -56,7 +55,7 @@ class AssignDriver extends StatelessWidget {
                         item.toLowerCase().contains(pattern.toLowerCase()));
                   },
                   onSuggestionSelected: (String val) {
-                    this.driverName.text = val;
+                    driverName.text = val;
                     print(val);
                   },
                   itemBuilder: (_, String item) {
@@ -117,8 +116,8 @@ class AssignDriver extends StatelessWidget {
   }
 }
 
-class vehicleDropdown extends StatelessWidget {
-  const vehicleDropdown({
+class VehicleDropdown extends StatelessWidget {
+  const VehicleDropdown({
     Key? key,
     required this.vehicleNumber,
     required this.vechileNumber,

@@ -69,18 +69,18 @@ Widget _activeCard({
               children: [
                 Text(
                   licenseno,
-                  style: TextStyle(fontSize: 16),
+                  style: const TextStyle(fontSize: 16),
                 ),
                 Text(
                   status,
-                  style: TextStyle(
+                  style: const TextStyle(
                       color: Colors.green, fontWeight: FontWeight.w500),
                 ),
               ],
             ),
           ),
         ),
-        cardtext(text: "Location"),
+        const Cardtext(text: "Location"),
         Card(
           child: Padding(
             padding: const EdgeInsets.all(8.0),
@@ -94,7 +94,7 @@ Widget _activeCard({
             ),
           ),
         ),
-        cardtext(
+        const Cardtext(
           text: "Invoice",
         ),
         Card(
@@ -104,15 +104,15 @@ Widget _activeCard({
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
-                children: [Text("BaseFare"), Spacer(), Text(basefare)],
+                children: [const Text("BaseFare"), const Spacer(), Text(basefare)],
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
                 children: [
-                  Text("Additional charges"),
-                  Spacer(),
+                  const Text("Additional charges"),
+                  const Spacer(),
                   Text(addcharge)
                 ],
               ),
@@ -120,25 +120,25 @@ Widget _activeCard({
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
-                children: [Text("Convenience fee"), Spacer(), Text(confee)],
+                children: [const Text("Convenience fee"), const Spacer(), Text(confee)],
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
-                children: [Text("GST"), Spacer(), Text(gst)],
+                children: [const Text("GST"), const Spacer(), Text(gst)],
               ),
             ),
-            Divider(),
+            const Divider(),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
-                children: [Text("Total"), Spacer(), Text(total)],
+                children: [const Text("Total"), const Spacer(), Text(total)],
               ),
             ),
           ]),
         )),
-        cardtext(
+        const Cardtext(
           text: "Wallet",
         ),
         Card(
@@ -149,20 +149,20 @@ Widget _activeCard({
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
-                    children: [Text("Total"), Spacer(), Text(wallettotal)],
+                    children: [const Text("Total"), const Spacer(), Text(wallettotal)],
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
-                    children: [Text("Spent"), Spacer(), Text(walletspent)],
+                    children: [const Text("Spent"), const Spacer(), Text(walletspent)],
                   ),
                 ),
-                Divider(),
+                const Divider(),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
-                    children: [Text("Balance"), Spacer(), Text(walletbalance)],
+                    children: [const Text("Balance"), const Spacer(), Text(walletbalance)],
                   ),
                 )
               ],
@@ -174,8 +174,8 @@ Widget _activeCard({
   );
 }
 
-class cardtext extends StatelessWidget {
-  cardtext({
+class Cardtext extends StatelessWidget {
+  const Cardtext({
     Key? key,
     required this.text,
   }) : super(key: key);

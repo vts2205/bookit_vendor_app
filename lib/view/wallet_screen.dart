@@ -1,12 +1,9 @@
-import 'package:bookit_vendor_app/constants/colors.dart';
 import 'package:bookit_vendor_app/view/assign_driver.dart';
 import 'package:bookit_vendor_app/widgets/appbar.dart';
 import 'package:bookit_vendor_app/widgets/custom_elevatedbtn.dart';
 import 'package:bookit_vendor_app/widgets/custom_textfield.dart';
 import 'package:bookit_vendor_app/widgets/drawer_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_typeahead/flutter_typeahead.dart';
-import 'package:get/get.dart';
 
 class WalletScreen extends StatelessWidget {
   WalletScreen({Key? key}) : super(key: key);
@@ -36,7 +33,7 @@ class WalletScreen extends StatelessWidget {
           key: formKey,
           child: Column(
             children: [
-              vehicleDropdown(
+              VehicleDropdown(
                   vehicleNumber: vehicleNumber, vechileNumber: vechileNumber),
               CustomTextField(
                 hinttext: 'Enter Amount',
